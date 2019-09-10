@@ -1,0 +1,25 @@
+﻿REMEMBER: Defina com suas palavras, sem consultar material externo, pra que servem as variáveis e por que as usamos, e o que é escopo e qual a sua importância.
+
+Variáveis servem para armazenar informações que a gente precise acessar de maneira mais rápida, sem refazer cálculos ou reescrever textos, por exemplo, otimizando nossos códigos. Elas possuem um escopo, ou seja, uma espécie de 'limite' onde ela é válida/reconhecida.
+Isso é importante porque nos ajuda a resolver grandes problemas e/ou a construir grandes sistemas 'fatiando' o mesmo em partes menores e mais compreensíveis.
+
+
+Começa o funcionamento do elevador, no térreo:
+
+Subindo:
+Se numero de pessoas é 0, 
+   ir para o térreo.
+Se numero de pessoas é maior que 10,
+   ficar no andar atual.
+Ir até o(s) andar(es) solicitado(s) no painel.
+
+Descendo:
+Se numero de pessoas é 0, 
+   ir para o térreo.
+Se numero de pessoas é 10, 
+   descer em direção ao térreo.
+Se numero de pessoas é maior que 10,
+   ficar no andar atual.
+Ir até o(s) andar(es) solicitado(s) no painel.
+
+    
