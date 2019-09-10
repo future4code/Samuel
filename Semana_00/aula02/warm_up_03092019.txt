@@ -1,0 +1,14 @@
+﻿REMEMBER:
+Levando em conta a analogia da cozinha e sem consultar material externo, explique quais são as funções e interações do: Armário, livro de receitas e cozinheiro."
+
+O armário/armazenamento é o local para guardar os ingredientes/informações. 
+Os livros de receitas/programas, por sua vez, nos dizem em quê ordem esses ingredientes/informasções produzem um resultado aceitável/produtivo. E o cozinheiro/programador é a pessoa que sabe não só ler e interpretar o livro de receitas/programa, mas também melhorá-lo, quando necessário e/ou possível.
+
+CHALLENGE:
+1) 5
+2) 'Maçã3'
+3) 190
+4) 120
+5) -1
+6) 160
+7) 57
