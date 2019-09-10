@@ -1,0 +1,20 @@
+﻿Exercício 1
+Início
+Receber um saco de lixo até que não haja mais sacos de lixo
+Pegar cada parte do lixo até que acabe todo o lixo do saco
+Identificar se essa parte atual do lixo é:
+- orgânico
+	se sim, colocar na lixeira para orgânicos.
+- plástico
+	se sim, colocar na lixeira para plásticos.
+- metal
+	se sim, colocar na lixeira para metais.
+- vidro
+	se sim, colocar na lixeira para vidros.
+- papel
+	se sim, colocar na lixeira para plásticos.
+pegar um novo saco de lixo
+Fim
+
+Exercício 2
+Sim, acredito que seria necessário conhecer as especificidades do robô (e de todo o resto envolvido, também!) pra que as instruções fossem muito mais detalhadas/explícitas e direcionadas exatamente para a tarefa a ser realizada, evitando interpretações.
