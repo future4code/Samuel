@@ -1,0 +1,120 @@
+﻿$ pwd
+/d/Projeto Future4/assassinato-na-linha-de-comando
+
+$ ls
+inicio  misterio/  README.md
+
+$ cat inicio
+Aconteceu um assassinato na Cidade do Terminal, e a polícia precisa da sua ajuda.
+
+Para descobrir o culpado, vá até o subdiretório "misterio" e comece investigando
+por lá.
+
+Você provavelmente vai querer começar analisando todas as pistas que foram
+encontradas na cena do crime (arquivo "cena-do-crime").
+
+Os policiais que analisaram a cena foram bastante detalhistas e colocaram, neste
+arquivo, TUDO que encontraram.
+
+Felizmente, o sargento analisou o relatório e marcou as pistas reais com a
+palavra "PISTA", em maiúsculas.
+
+$ ls misterio/
+associacoes/  automoveis  cena-do-crime  entrevistas/  pessoas  ruas/
+
+$ grep "PISTA" misterio/cena-do-crime
+
+PISTA: A filmagem do caixa eletrônico está embaçada, mas mostra que o suspeito é um homem alto, pelo menos 1,83m de altura.
+PISTA: Encontramos uma carteira que provavelmente pertence ao assassino. Nenhum documento de identidade, apenas alguns trocados e carteirinhas dos grupos AAA, Delta SkyMiles, biblioteca e do Museu de História do Bash. Impossível rastrear as carteirinhas, e nenhuma delas possui nome, por algum motivo.
+PISTA: Interrogamos o garçom da cafeteria próxima à cena. Ele disse que uma mulher saiu da cafeteria logo antes de ouvirem os tiros. O nome dela era Annabel, tinha cabelo loiro curto e um sotaque da Nova Zelândia.
+
+$ cd misterio/associacoes/
+$ grep "Annabel" xxxxx   
+(onde xxxxx é nome de uma das associações):
+
+"AAA":
+Annabel Church
+
+"Delta_SkyMiles":
+-
+
+"Biblioteca":
+-
+
+"Museu de História do Bash"
+Annabel Church
+Oluwasegun Annabel
+
+$ cd ..
+$ grep "Annabel" pessoas
+Annabel Sun     F       26      Vila Hart, linha 40
+Oluwasegun Annabel      M       37      Rua Mattapan, linha 173
+Annabel Church  F       38      Vila Buckingham, linha 179
+Annabel Fuglsang        M       40      Rua Haley, linha 176
+
+$ head -n 40 ruas/Vila_Hart
+.
+.
+.
+LEIA A ENTREVISTA #47246024
+
+$ cat entrevistas/entrevista-47246024
+A Srta. Sun tem cabelo castanho e não é da Nova Zelândia. Não é a testemunha da cafeteria.
+
+$ head -n 179 ruas/Vila_Buckingham
+.
+.
+.
+LEIA A ENTREVISTA #699607
+
+$ cd entrevistas/
+$ cat entrevista-699607
+Entrevistamos a Srta. Church às 14:04. A testemunha afirmou que não viu ninguém com as características do atirador e que saiu correndo assim que os tiros foram disparados.
+
+No entanto, ela reportou que viu um carro fugindo da cena do crime. Descreveu como um Honda azul, com placa que começa com "L337" e termina com "9".
+
+$ cd ..
+$ grep -A 5 "L337" automoveis
+(vieram mais alguns resultados, mas deixei aqui apenas os que julguei suspeitos, por não serem "F"emale ou estarem abaixo de "pelo menos 1,83m de altura")
+
+Placa L337DV9
+Marca: Honda
+Cor: Azul
+Proprietário: Joe Germuska
+Altura: 1,88 m
+Peso: 74,4 kg
+--
+Placa L3375A9
+Marca: Honda
+Cor: Azul
+Proprietário: Jeremy Bowers
+Altura: 1,86 m
+Peso: 92,5 kg
+
+$ grep "Joe Germuska" pessoas
+Joe Germuska    M       65      Rua Plainfield, linha 275
+
+$ head -n 275 ruas/Rua_Plainfield
+.
+.
+.
+LEIA A ENTREVISTA #29741223
+
+$ cat entrevistas/entrevista-29741223
+Não deve ser considerado suspeito, pois não é associado ao SkyMiles e nunca foi membro do Museu de História do Bash.
+
+$ grep "Jeremy Bowers" pessoas
+Jeremy Bowers   M       34      Travessa Dunstable, linha 284
+
+$ head -n 284 ruas/Travessa_Dunstable
+.
+.
+.
+LEIA A ENTREVISTA #9620713
+
+$ cat entrevistas/entrevista-9620713
+A casa parece estar vazia. Não houve resposta quando batemos na porta.
+
+Após questionar os vizinhos, parece que o morador viajou recentemente.
+
+Será considerado um suspeito até que se prove o contrário, mas teríamos que eliminar outros suspeitos para ter certeza.
