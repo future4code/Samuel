@@ -1,4 +1,4 @@
-#logo{
+.logo{
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -30,6 +30,10 @@ nav li a{
     text-decoration: none;
 }
 
+nav li a:hover{
+    color: red;    
+}
+
 nav ul {
     margin-top: 150px;
 }
@@ -46,4 +50,49 @@ footer div img{
     height: auto;
     padding-left: 50px;
     padding-right: 50px;
+}
+
+.textoContato{
+    color: orange;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+#mensagem{
+    width: 200px;
+    height: 150px;
+}
+
+#boasVindas{
+    font-size: 20pt;
+    color: orange;
+}
+
+#faleConosco{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 15pt;
+    color: red;
+}
+
+#enviaContato{
+    font-size: 15pt;
+    background-color: brown;
+    color: white;
+}
+
+/* substituir pelo menu em todas as páginas*/
+.voltar{
+    width: 15px;
+    height: auto;    
+}
+a span{
+    font-size: 12pt;    
+}
+a{
+    text-decoration: none;
+}
+
+#quem{    
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20pt;
 }
