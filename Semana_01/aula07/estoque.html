@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/estilos.css">
     <title>Passitos - Controle de Estoque</title>
 </head>
 <body>
-    <h1>Passitos - Controle de Estoque</h1>
-    <h4>
-        <a href="index.html">
-            <img src="data:image/png;base64,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" alt="Voltar" height="25">
-            <span>Voltar</span>
-        </a>
-    </h4>
+    <header>
+        <nav>
+            <div id="meuLogo">                
+                <img id="logoSomos" src="imagens/logo_high.png" alt="Passitos - Chinelos Personalizados">
+            </div>
+            <div id="meuMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="adicionar.html">Adicionar produtos</a></li>                    
+                    <li><a href="funcionarios.html">Funcionários</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="quemsomos.html">Sobre</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <h3>Controle de Estoque</h3>    
     <table>
         <tr>
             <th>Foto</th>
@@ -22,45 +33,41 @@
             <th>Qtidade. Disponível</th>
         </tr>
         <tr>
-            <td><img src="/imagens/polvo.jpg" alt="Infantil - Masculino" height="250"></td>
+            <td><img class="imgProduto" src="imagens/polvo.jpg" alt="Infantil - Masculino"></td>
             <td><p>Chinelo infantil masculino, tamanhos 12 ao 30,<br> estampa de polvo, com nome personalizável.</p></td>
             <td><p>R$ 15,00</p></td>
             <td><p>30 unidades</p></td>
         </tr>
         <tr>
-            <td><img src="/imagens/unicornio.jpg" alt="Infantil - Feminino" height="250"></td>
+            <td><img class="imgProduto" src="imagens/unicornio.jpg" alt="Infantil - Feminino"></td>
             <td><p>Chinelo infantil feminino, tamanhos 12 ao 30, <br> estampa de unicórnio, com nome personalizável.</p></td>
             <td><p>R$ 19,90</p></td>
             <td><p>45 unidades</p></td>
         </tr>
         <tr>
-            <td><img src="/imagens/flamingo.jpg" alt="Adulto - Feminino" height="250"></td>
+            <td><img class="imgProduto" src="imagens/flamingo.jpg" alt="Adulto - Feminino"></td>
             <td><p>Chinelo adulto feminino, tamanhos 34 ao 39,<br> estampa de flamingo, com opção de nome <br> personalizável.</p></td>
             <td><p>R$ 29,90</p></td>
             <td><p>25 unidades</p></td>
         </tr>
         <tr>
-            <td><img src="/imagens/custom.png" alt="Custom" height="250"></td>
+            <td><img class="imgProduto" src="imagens/custom.png" alt="Custom"></td>
             <td><p>Chinelo adulto totalmente personalizável unissex,<br> tamanhos 34 ao 43. Escolha sua estampa e/ou <br> nomes personalizados.</p></td>
             <td><p>R$ 44,99</p></td>
             <td><a href="contato.html"><p>Consulte-nos</p></a></td>
         </tr>
         <tr>
-            <td><img src="/imagens/noivos.webp" alt="Noivos" height="250"></td>
+            <td><img class="imgProduto" src="imagens/noivos.webp" alt="Noivos"></td>
             <td><p><strong> DOIS pares </strong> de chinelos, "Noivo" e "Noiva", <br>com nomes personalizados, tamanhos 34 ao 43 <br> (consulte disponibilidade de tamanhos).</p></td>
             <td><p>R$ 59,99</p></td>
             <td><a href="contato.html"><p>Consulte-nos</p></a></td>
         </tr>
         <tr>
-            <td><img src="/imagens/madrinhas.jpg" alt="Madrinhas" width="250"></td>
+            <td><img class="imgProduto" src="imagens/madrinhas.jpg" alt="Madrinhas"></td>
             <td><p>Chinelo adulto para madrinhas, tamanho 34 <br>ao 39, com opção de personalização de nomes.</p></td>
             <td><p>29,99</p></td>
             <td><a href="contato.html"><p>Consulte-nos</p></a></td>
         </tr>
-    </table>
-    <a href="index.html">
-        <img src="/imagens/seta_voltar.png" alt="Voltar" height="25">
-        <span>Voltar</span>
-    </a>    
+    </table>    
 </body>
 </html>

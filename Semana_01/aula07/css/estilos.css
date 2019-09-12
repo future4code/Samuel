@@ -11,6 +11,7 @@
 #boasVindas{
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    padding-bottom: 150px;
 }
 
 nav{
@@ -32,10 +33,6 @@ nav li a{
 
 nav li a:hover{
     color: red;    
-}
-
-nav ul {
-    margin-top: 150px;
 }
 
 footer{    
@@ -67,32 +64,186 @@ footer div img{
     color: orange;
 }
 
+#formContato, #faleConosco{
+    text-align: center;
+}
+
 #faleConosco{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    font-size: 15pt;
-    color: red;
+    font-size: 16pt;
+    padding-top: 50px;
+    color: red;    
+}
+
+#enviaContato, #enviaPedido{
+    font-size: 12pt;
+    font-weight: bold;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
 }
 
 #enviaContato{
-    font-size: 15pt;
-    background-color: brown;
+    color: orange;
+    background-color: white;
+    border: 2px orange solid;
+}
+#enviaContato:hover{
+    background-color: orange;
     color: white;
 }
 
-/* substituir pelo menu em todas as páginas*/
-.voltar{
-    width: 15px;
-    height: auto;    
+#enviaPedido{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    text-align: center;    
+    background-color: white;
+    color: red;
+    border: 2px red solid;
 }
-a span{
-    font-size: 12pt;    
-}
-a{
-    text-decoration: none;
+#enviaPedido:hover{
+    background-color: red;
+    color: white;
 }
 
-#quem{    
+#quem, h2, h3{    
+    text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+#quem{
+    color: red;    
     font-size: 20pt;
+    padding-top: 50px;
+}
+h2{    
+    color: orange;
+    font-size: 16pt;
+}
+h3{
+    color: red;    
+    font-size: 16pt;
+    font-style: italic;
+    padding-top: 50px;
+}
+
+#gifDancinha{
+    display: block;
+    border: 3px red dashed;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 5px;
+}
+
+#funcs{
+    color: red;
+    padding-top: 50px;
+    font-size: 18pt;    
+}
+
+/* navegação das páginas */
+#logoSomos{    
+    width: 150px;
+    height: auto;
+}
+#meuLogo, #meuMenu{
+    display: inline-block;
+}
+
+#listaFuncs{    
+    text-align: center;    
+    list-style-position: inside;
+    color: red;
+}
+
+.nome, .dt_nasc{
+    display: inline-block;
+    padding-bottom: 20px;
+}
+
+.nome{    
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    color: orange;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dt_nasc{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    color: black;
+}
+
+#adicionarProds{
+    padding-top: 50px;
+    color: red;
+}
+
+#formProdutos{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;   
+    text-align: center; 
+    padding-top: 30px;
+}
+
+.nomeCampoAdd{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 15px 0px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    color: orange;    
+}
+
+select{    
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    padding: 10px 10px;    
+}
+
+optgroup{
+    color: red;    
+}
+option{
+    color: black;
+}
+
+.campoDigitavel{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;    
+    padding: 10px 10px;
+    border-radius: 8px;
+    /*border: 2px solid red;*/
+}
+
+table{    
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 5px;
+    text-align: center;  
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    border: 2px solid red;  
+}
+
+td{
+    border: 2px solid orange;
+}
+
+.imgProduto{
+    height: 100px;
+    width: auto;
 }
