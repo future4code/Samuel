@@ -6,3 +6,42 @@
     box-sizing: border-box;
 }
 
+header{    
+    position: relative;
+    top: 0;
+    left: auto;
+    width: auto;
+    background-color: antiquewhite;
+}
+
+header img{    
+    width: 75px;
+    height: auto;
+}
+
+nav > ul >li{
+    display: inline;    
+}
+
+nav >ul >li > a{
+    /*color: #fff;*/
+}
+
+main{
+    background-color: red;
+    display: block;
+    text-align: center;
+}
+footer{
+    background-color: green;
+    display: block;
+    text-align: center;
+    
+}
+
+
+main > img{    
+    width: 300px;
+    height: auto;
+    border: 2px solid white;
+}
