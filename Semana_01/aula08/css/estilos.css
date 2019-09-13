@@ -1,70 +1,61 @@
 body{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;    
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 
 #header{
-    display: block;
+    display: block;    
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto;    
 }
 
 .logo{
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 50px auto;
     width: 750px;
     height: auto;
 }
 
-#logoSomos{    
+#meuLogo > img{
     width: 250px;
     height: auto;
 }
 
-#meuMenu{
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.meuMenu{
-    display: block;
-    text-align: center;    
+.meuMenu{    
+    display: block;    
     margin-top: 10px;    
-}
-
-#boasVindas, #sistInterno{    
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;    
 }
 
 #boasVindas{
     color: red;
 }
 
-#sistInterno{
+header > h2{
     color: orange;
     font-weight: bold;
 }
 
 ul{
-    width: fit-content;
+    padding: 0;
     margin: 0 auto;
 }
 
-nav li{
-    display: inline-block;
-    padding: 10px 0px 0px 50px;
+nav li {
+    display: inline-block;    
+}
+
+#meio{
+    padding: 0 50px;
 }
 
 .btnMenu{
     border: 2px solid red;
     border-radius: 5px;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    padding: 10px 10px;
+    padding: 10px;
     color: red;    
     background-color: white;
 }
@@ -72,7 +63,7 @@ nav li{
 .btnMenu:hover{
     color: white;    
     background-color: red;
-    box-shadow: 0px 3px grey;
+    box-shadow: 0 3px grey;
 }
 .btnMenu:active{
     color: white;
@@ -82,13 +73,11 @@ nav li{
 #funcs{
     display: block;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
     color: orange;    
     font-size: 18pt; 
 }
 
-#listaFuncs{    
-    text-align: center;    
+#listaFuncs{
     list-style-position: inside;
     color: red;
 }
@@ -100,7 +89,6 @@ nav li{
 
 .nome{    
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 12pt;
     color: orange;
     margin-left: auto;
@@ -108,14 +96,11 @@ nav li{
 }
 
 .dt_nasc{
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 10pt;
     color: black;
 }
 
-h2, h3{
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+h2, h3{    
     font-size: 16pt;    
 }
 h2{
@@ -135,24 +120,20 @@ h3{
 #formProdutos{
     display: block;
     margin-left: auto;
-    margin-right: auto;   
-    text-align: center; 
+    margin-right: auto;
     padding-top: 30px;
 }
 
 #descricaoProduto{
-    font-family: Arial, Helvetica, sans-serif;
     color: black;
-    text-align: center;
 }
 
 .nomeCampoAdd{
     display: block;
     margin-right: auto;
     margin-left: auto;
-    padding: 15px 0px;
+    padding: 15px 0;
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 12pt;
     color: orange;    
 }
@@ -166,19 +147,15 @@ h3{
 }
 
 .campoDigitavel{
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 12pt;    
-    padding: 10px 10px;
+    padding: 10px;
     border-radius: 8px;    
 }
 
 table{    
     margin-left: auto;
     margin-right: auto;
-    padding: 5px 5px;
-    text-align: center;  
-    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
     font-size: 12pt;
     border: 2px solid red;  
 }
@@ -197,7 +174,6 @@ td{
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    text-align: center;    
     background-color: white;
     color: red;
     border: 2px red solid;
@@ -225,13 +201,11 @@ td{
 footer{    
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
     margin-top: 100px;    
 }
 
 footer div img{    
     width: 40px;
     height: auto;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 0 50px;    
 }
