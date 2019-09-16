@@ -1,0 +1,53 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    min-height: 100vh;
+    display: grid; /* somente as divs DIRETAMENTE abaixo reconhecem/são afetadas! */
+    grid-template-rows: 50px 1fr 100px 100px 50px;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* 25% 25% 25% 25% tbm funcionaria */
+}
+
+.item {
+    color: white;
+    display: grid; /* é preciso declarar novamente pq o texto seria como um nova tag, que não é filho direto da div! */
+    justify-items: center;
+    align-items: center;
+}
+
+.header {
+    background-color: #2ECC40;    
+}
+
+.menu {
+    background-color: #FFDC00;
+    grid-column: 2 / -1;
+}
+
+.content1 {
+    background-color: #F012BE;
+    grid-column: 1 / -1;
+}
+
+.content2 {
+    background-color: #0074D9;
+    grid-row: span 2;
+    grid-column: span 2;
+}
+
+.image {
+    background-color: #FF4136;
+    grid-column: -2 / -1;
+}
+
+.extra {
+    background-color: #01FF70;
+    grid-column: -2 / -1;
+}
+
+.footer {
+    background-color: #B10DC9;
+    grid-column: span 4; /* 1 / -1 tbm funciona */
+}
