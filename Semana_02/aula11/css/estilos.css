@@ -1,0 +1,85 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: gray;
+}
+
+.container{
+    width: 70vw;
+    margin: 0 auto;
+    background-color: white;
+}
+
+header{    
+    height: 100px;
+    background-color: #ef843a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > h1{
+    margin: 0;    
+    font-size: 25pt;    
+    padding-left: 20px;
+}
+
+header > input{
+    height: 30px;
+    margin-right: 20px;
+}
+
+section{    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 20px 100px;
+}
+
+section h2{
+    font-size: 14pt;
+    padding-left: 10px;
+}
+
+article{    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;        
+    border: 1px solid green;    
+}
+
+article img{
+    width: 100%;
+    height: auto;
+}
+
+article a{
+    text-decoration: none;
+}
+
+footer{
+    background-color: #323b3e;
+    color: white;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+aside{
+    padding: 20px;
+}
+
+aside > h3 {
+    margin: 0;
+    padding: 5px 0;
+}
+video{    
+    width: 100%;    
+    height: auto;
+    padding-bottom: 100px    
+}
