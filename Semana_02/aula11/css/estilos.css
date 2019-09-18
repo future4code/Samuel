@@ -11,7 +11,7 @@ html, body{
     background-color: white;
 }
 
-header{    
+header{
     height: 100px;
     background-color: #ef843a;
     display: flex;
@@ -20,8 +20,8 @@ header{
 }
 
 header > h1{
-    margin: 0;    
-    font-size: 25pt;    
+    margin: 0;
+    font-size: 25pt;
     padding-left: 20px;
 }
 
@@ -30,7 +30,7 @@ header > input{
     margin-right: 20px;
 }
 
-section{    
+section{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -45,12 +45,12 @@ section h2{
     padding-left: 10px;
 }
 
-article{    
+article{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: center;        
-    border: 1px solid green;    
+    justify-content: center;
+    border: 1px solid green;
 }
 
 article img{
@@ -78,8 +78,34 @@ aside > h3 {
     margin: 0;
     padding: 5px 0;
 }
-video{    
-    width: 100%;    
+video{
+    width: 100%;
     height: auto;
-    padding-bottom: 100px    
+    padding-bottom: 100px;
+}
+
+/* Responsividade para telas entre 375px e 550px de largura */
+@media screen and (min-width: 375px) and (max-width: 550px){
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header > h1{
+        font-size: 12pt;
+    }
+    
+    header > input{
+        width: 135px;
+    }
+
+    section{
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+    }
+    article{
+        margin-bottom: 20px;
+    }
 }
