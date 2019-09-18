@@ -1,0 +1,93 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: darkgray;
+}
+
+.container{
+    width: 95vw;
+    margin: 0 auto;
+    display: flex;
+}
+
+p{
+    margin: 0;
+    text-align: center;
+}
+
+.left-col{
+    background-color: grey;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding: 20px; 
+}
+
+.right-col{    
+    background-color: white;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+}
+
+.barra-top{
+    background-color: red;
+    width: 100%;
+    height: 100px;
+}
+
+.lista1, .lista2, .lista3{
+    width: 100%;    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.l1, .l2, .l3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.l1 {
+    height: 100px;
+    width: 29%;
+    margin: 2% 2%;
+    border: 1px solid black;
+}
+.a{
+    background-color: blue;
+}
+.b{
+    background-color: yellow;
+}
+.c{
+    background-color: green;
+}
+
+.l2{
+    background-color: black;
+    height: 300px;
+    width: 46%;
+    margin: 2%;
+    color: white;
+}
+
+.l3{
+    background-color: white;
+    height: 100px;
+    width: 29%;
+    margin: 2% 2%;
+    margin-bottom: 100px;
+    border: 1px solid black;
+}
+
+/* to be continued... */
