@@ -1,17 +1,17 @@
-html, body{
+html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: gray;
 }
 
-.container{
+.container {
     width: 70vw;
     margin: 0 auto;
     background-color: white;
 }
 
-header{
+header {
     height: 100px;
     background-color: #ef843a;
     display: flex;
@@ -19,18 +19,18 @@ header{
     align-items: center;
 }
 
-header > h1{
+header > h1 {
     margin: 0;
     font-size: 25pt;
     padding-left: 20px;
 }
 
-header > input{
+header > input {
     height: 30px;
     margin-right: 20px;
 }
 
-section{
+section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -40,12 +40,12 @@ section{
     margin: 20px 20px 100px;
 }
 
-section h2{
+section h2 {
     font-size: 14pt;
     padding-left: 10px;
 }
 
-article{
+article {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -53,16 +53,16 @@ article{
     border: 1px solid green;
 }
 
-article img{
+article img {
     width: 100%;
     height: auto;
 }
 
-article a{
+article a {
     text-decoration: none;
 }
 
-footer{
+footer {
     background-color: #323b3e;
     color: white;
     height: 100px;
@@ -70,7 +70,8 @@ footer{
     align-items: center;
     padding-left: 20px;
 }
-aside{
+
+aside {
     padding: 20px;
 }
 
@@ -78,7 +79,8 @@ aside > h3 {
     margin: 0;
     padding: 5px 0;
 }
-video{
+
+video {
     width: 100%;
     height: auto;
     padding-bottom: 100px;
@@ -86,26 +88,27 @@ video{
 
 /* Responsividade para telas entre 375px e 550px de largura */
 @media screen and (min-width: 375px) and (max-width: 550px){
-    header{
+    header {
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
-    header > h1{
+    header > h1 {
         font-size: 12pt;
     }
     
-    header > input{
+    header > input {
         width: 135px;
     }
 
-    section{
+    section {
         display: flex;
         flex-direction: column;
         margin: 20px;
     }
-    article{
+
+    article {
         margin-bottom: 20px;
     }
 }
