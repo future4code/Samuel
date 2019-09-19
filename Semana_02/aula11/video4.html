@@ -8,20 +8,55 @@
     <title>Media 4</title>
 </head>
 <body>
-
     <div class="container">
         <header>
-            <h1>FutureTube</h1>
+            <a href="index.html"><h1>FutureTube</h1></a>
             <input type="search" placeholder="Busca">
         </header>
-        <aside>
-            <h3>Media 4</h3>
-            <video src="http://soter.ninja/videos/4.mp4" controls autoplay></video>
-        </aside>
+        <main>
+            <nav>
+                <ul>
+                    <a href="index.html"><li>Início</li></a>
+                    <li>Em alta</li>
+                    <li>Inscrições</li>
+                    <li>Originais</li>
+                </ul>
+                <hr>
+                <ul>
+                    <li>Biblioteca</li>
+                    <li>Histórico</li>
+                </ul>
+            </nav>
+            <section id="videoAtual">
+                <video src="http://soter.ninja/videos/4.mp4" controls autoplay></video>
+                <section class="infoVideo">
+                    <h3>Media 4</h3>
+                    <span>
+                        <button>Curtir</button>
+                        <button>Descurtir</button>
+                    </span>
+                </section>
+            </section>
+            <aside>
+                <article class="videoSugerido">
+                    <img src="imagens/preview_05.jpg" alt="Preview 05">
+                    <h2>Media 5</h2>
+                </article>
+                <article class="videoSugerido">
+                    <a href="video7.html">
+                        <img src="imagens/preview_07.jpg" alt="Preview 07">
+                        <h2>Media 7</h2>
+                    </a>
+                </article>
+                <article class="videoSugerido">
+                    <img src="imagens/preview_06.jpg" alt="Preview 06">
+                    <h2>Media 6</h2>
+                </article>
+            </aside>
+        </main>
         <footer>
             <h1>Oi! Eu moro no footer!</h1>
         </footer>
     </div>
-    
 </body>
 </html>
