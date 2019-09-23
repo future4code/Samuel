@@ -13,7 +13,7 @@
             if(novaTask !== ""){ // verifica que há alguma tarefa digitada                
                 let listaDia = document.getElementById("escolheDia").value;
                 let diaSemana = document.getElementById(listaDia);
-                diaSemana.innerHTML += "<li>" + novaTask + "</li>";
+                diaSemana.innerHTML += "<li class='tarefa'>"+ novaTask + "</li>";
                 document.querySelector("input").value = "";
             }
             else{
@@ -21,12 +21,13 @@
             }
         }
 
-        function checarEnter(event){ // função checando se a tecla pressionada no 'input' foi a 'Enter'
+        // funcionalidade extra: checa se a tecla pressionada no 'input' foi a 'Enter'
+        function checarEnter(event){ 
             if(event.key === "Enter"){
                 criarTarefa();
             }
         }
-
+        
     </script>
 </head>
 <body>
