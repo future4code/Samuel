@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="planner.css">
+    <title>Planner</title>
+
+    <script>
+        function criarTarefa(){
+            let novaTask = document.querySelector("input").value;
+            if(novaTask !== ""){ // verifica que há alguma tarefa digitada                
+                let listaDia = document.getElementById("escolheDia").value;
+                let diaSemana = document.getElementById(listaDia);
+                diaSemana.innerHTML += "<li>" + novaTask + "</li>";
+                document.querySelector("input").value = "";
+            }
+            else{
+                alert("Tarefa vazia. Digite novamente, por favor.");
+            }
+        }
+
+        function checarEnter(event){ // função checando se a tecla pressionada no 'input' foi a 'Enter'
+            if(event.key === "Enter"){
+                criarTarefa();
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h3>Week Planner</h3>
+        <header>            
+            <label for="tarefa">Tarefa:</label>
+            <input type="text" onkeydown="checarEnter(event)" placeholder="Digite a tarefa a ser adicionada...">
+            <select name="semana" id="escolheDia">
+                <option value="domingo">Domingo</option>
+                <option value="segunda">Segunda-feira</option>
+                <option value="terca">Terça-feira</option>
+                <option value="quarta">Quarta-feira</option>
+                <option value="quinta">Quinta-feira</option>
+                <option value="sexta">Sexta-feira</option>
+                <option value="sabado">Sábado</option>
+            </select>
+            <button onclick="criarTarefa()">Criar tarefa!</button>
+        </header>
+        <section>
+            <article class="diaSemana">
+                <p>DOM</p>
+                <ul id="domingo">                    
+                </ul>
+            </article>
+            <article class="diaSemana">
+                <p>SEG</p>
+                <ul id="segunda">
+                </ul>
+            </article>
+            <article class="diaSemana">
+                <p>TER</p>
+                <ul id="terca">
+                </ul>
+            </article>
+            <article class="diaSemana">
+                <p>QUA</p>
+                <ul id="quarta">
+                </ul>
+            </article>
+            <article class="diaSemana">
+                <p>QUI</p>
+                <ul id="quinta">
+                </ul>
+            </article>
+            <article class="diaSemana">
+                <p>SEX</p>
+                <ul id="sexta">
+                </ul>
+            </article>
+            <article class="diaSemana">
+                <p>SAB</p>
+                <ul id="sabado">
+                </ul>
+            </article>
+        </section>
+        <footer><p>BOA SORTE E BOA SEMANA!</p></footer>
+    </div>    
+</body>
+</html>
