@@ -9,21 +9,50 @@
     <title>Inscritos</title>
 
     <script>
+
+        function buscaItem(chave) {
+            const valor = window.localStorage.getItem(chave);
+            if (valor) {
+                return JSON.parse(valor);
+            }
+            return [];
+        }
+
+        function salvaItem(chave, item) {
+            if (item && chave) {
+                window.localStorage.setItem(chave, JSON.stringify(item));
+            }
+        }
+
+        window.onload = function(){//work-around que encontrei na net, pra esperar a página carregar e aí, sim, o "id" já existir com ctz!
+            let inscritos = document.getElementById("inscritos"); // não está reconhecendo o 'id'! retorna 'null'  (-_-)
+            console.log("Inscritos", inscritos);
+            
+            let alunos = buscaItem("alunos");
+            console.log("Alunos: ", alunos);
+
+            for(let aluno of alunos){
+                inscritos.innerHTML += "<p> Nome: " + aluno.nome + " Idade: " +
+                aluno.idade + " E-mail: " + aluno.email + " Contato: " + aluno.telefone +
+                "</p>";
+            }
+        }
+        
+
+        // botão 'voltar':
         function carregaPagina(){
             location.href = "cadastro.html";
         }
     </script>
-
 
 </head>
 <body>
     <div class="container">
         <header><h1>Inscritos</h1></header>
         
-        <section class="incritos">
-        </section>
+        <main id="inscritos"></main>
         
-        <button id="voltar" onclick="carregaPagina()">Voltar</button>
+        <button onclick="carregaPagina()">Voltar</button>
 
     </div>
     

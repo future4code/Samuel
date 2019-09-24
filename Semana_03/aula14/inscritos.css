@@ -6,6 +6,10 @@ html, body {
     font-size: 1em;
 }
 
+.container {
+    margin: 50px;
+}
+
 button {
     width: 20%;
     height: 30px;

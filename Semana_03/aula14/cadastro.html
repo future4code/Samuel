@@ -24,7 +24,7 @@
             }
         }
 
-        const cadastrados = [];        
+        let cadastrados = [];        
 
         function cadastrar(){
             const aluno = {
@@ -34,9 +34,21 @@
                 telefone: document.getElementById("telefone").value
             }
             
+            // buscar antes de atualizar:
+            cadastrados = buscaItem("alunos");
+            // acrescentar item:
             cadastrados.push(aluno);
+            // salvar já atualizado, com o item novo:
             salvaItem("alunos", cadastrados);
             console.log("Cadastrados", cadastrados);
+            limpaCampos();
+        }
+
+        function limpaCampos(){
+            document.getElementById("nome").value = "";
+            document.getElementById("idade").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("telefone").value = "";
         }
 
         function carregaPagina(){
@@ -61,8 +73,8 @@
             <label for="nome">Contato:</label>
             <input type="text" id="telefone" placeholder="Digite seu telefone">
             <div class="botoes">
-                <button id="cadastrar" onclick="cadastrar()">Cadastrar</button>
-                <button id="inscritos" onclick="carregaPagina()">Inscritos</button>
+                <button onclick="cadastrar()">Cadastrar</button>
+                <button onclick="carregaPagina()">Inscritos</button>
             </div>
         </section>        
     </div>        
