@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Funções em Javascript - Exemplo "mudaCor()"</title>
+
+    <script>
+
+        // usando o "getElementById"
+        // function mudaCor(){
+        //     const titulo = document.getElementById("titulo");
+        //     titulo.style.color = "red";
+        // }
+
+        // usando o "querySelector()" - dispensa o uso de "id"
+        function mudaCor(){
+            const titulo = document.querySelector("h1");
+            titulo.style.color = "red";
+        }
+    </script>
+</head>
+<body>
+
+
+
+    <h1 id="titulo">Hello World!</h1>
+    <button onclick="mudaCor()">Mudar cor</button>
+    
+</body>
+</html>

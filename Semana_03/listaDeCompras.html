@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Funções - Exemplo "Lista de Compras"</title>
+
+
+    <script>
+        function criarItem(){
+            let valorDoInput = document.querySelector("input").value;
+            
+            let listaDeCompras = document.querySelector("ul");
+
+            let novoItem = document.createElement("li");
+            novoItem.onclick = removeItem();
+            novoItem.innerHTML = valorDoInput;
+
+            listaDeCompras.append(novoItem);
+
+            /*
+            listaDeCompras.innerHTML += "<li>" + valorDoInput + "</li>"; // "innerHTML" edita A PARTE DE DENTRO DO ELEMENTO, nesse caso o "<ul>" como uma String
+            */
+
+            document.querySelector("input").value = ""; // 'limpando' o campo depois de criar o item
+        }
+
+        function checkEnter(event){ // função checando se a tecla pressionada no 'input' foi a 'Enter'
+            if(event.key === "Enter"){
+                criarItem();
+            }
+        }
+
+        function removeItem(event){
+            if(confirm("Deseja mesmo remover?")){
+                const target = event.target;
+                //const valor = target.innerHTML;
+                target.parentNode.removeChild(target);
+            }
+        }
+
+    </script>
+    
+</head>
+<body>
+
+    <h1>Minha Lista de Compras</h1>
+
+    <input type="text" onkeydown="checkEnter(event)">
+    <button onclick="criarItem()">Salvar</button>
+
+    <hr>
+
+    <ul>
+
+    </ul>
+    
+</body>
+</html>
