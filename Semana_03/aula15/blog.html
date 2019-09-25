@@ -40,7 +40,9 @@
         if (item && chave) {
             window.localStorage.setItem(chave, JSON.stringify(item));
         }
-    }    
+    }
+
+    let posts = [];
 
     class Post {
         constructor(titulo, autor, conteudo){
@@ -55,7 +57,17 @@
         const autor = document.getElementById("autor").value;
         const conteudo = document.getElementById("conteudo").value;
 
+        // cria um novo post:
         const novoPost = new Post(titulo, autor, conteudo);
+        // busca no local storage pela lista de posts:
+        buscaItem("posts");
+        // adiciona o novo post ao final da lista:
+        posts.push(novoPost);        
+        // salva a lista atualizada:
+        salvaItem("posts", posts);
+        // imprime no console a lista atualizada:
+        console.log(posts);
+        // limpa campos do formulário:
         limparCampos();
     }
 
