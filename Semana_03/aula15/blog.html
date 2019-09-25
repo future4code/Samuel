@@ -14,21 +14,56 @@
         <section>
             <h1>BLOG!</h1>
             <label for="novoPost">Título:</label>
-            <input type="text" placeholder="Título do post...">
+            <input type="text" id="titulo" placeholder="Título do post...">
             <label for="autor">Autor(a):</label>
-            <input type="text">
+            <input type="text" id="autor">
             <label for="post">Conteúdo:</label>
-            <textarea name="" id="" cols="50" rows="10" placeholder="Digite seu texto"></textarea>
+            <textarea name="" id="conteudo" cols="50" rows="10" placeholder="Digite seu texto"></textarea>
             <div class="botoes">
-                <button>Postar</button>
-                <button>Limpar</button>
+                <button onclick="criarPost()">Postar</button>
+                <button onclick="limparCampos()">Limpar</button>
             </div>
         </section>
-        
+
     </div>    
 </body>
+<script>    
+    function buscaItem(chave) {
+        const valor = window.localStorage.getItem(chave);
+        if (valor) {
+            return JSON.parse(valor);
+        }
+        return [];
+    }
 
-<script>
+    function salvaItem(chave, item) {
+        if (item && chave) {
+            window.localStorage.setItem(chave, JSON.stringify(item));
+        }
+    }    
+
+    class Post {
+        constructor(titulo, autor, conteudo){
+            this.titulo = titulo;
+            this.autor = autor;
+            this.conteudo = conteudo;
+        }
+    }
+    
+    function criarPost(){
+        const titulo = document.getElementById("titulo").value;
+        const autor = document.getElementById("autor").value;
+        const conteudo = document.getElementById("conteudo").value;
+
+        const novoPost = new Post(titulo, autor, conteudo);
+        limparCampos();
+    }
+
+    function limparCampos(){
+        document.getElementById("titulo").value = "";
+        document.getElementById("autor").value = "";
+        document.getElementById("conteudo").value = "";
+    }
 
 </script>
 </html>
