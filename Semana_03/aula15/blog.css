@@ -1,0 +1,30 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 1200px;
+    margin: auto;    
+    background-color: cornsilk;
+}
+
+section {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+button {
+    margin: 15px;
+    padding: 15px;
+}
