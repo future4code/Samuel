@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="inscritos.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <title>Inscritos</title>
+
+    <script>
+
+        function buscaItem(chave) {
+            const valor = window.localStorage.getItem(chave);
+            if (valor) {
+                return JSON.parse(valor);
+            }
+            return [];
+        }
+
+        function salvaItem(chave, item) {
+            if (item && chave) {
+                window.localStorage.setItem(chave, JSON.stringify(item));
+            }
+        }
+
+        window.onload = function(){//work-around que encontrei na net, pra esperar a página carregar e aí, sim, o "id" já existir com ctz!
+            let inscritos = document.getElementById("inscritos"); 
+            
+            let alunos = buscaItem("alunos");
+
+            for(let aluno of alunos){
+                inscritos.innerHTML += "<div> Nome: " + aluno.nome + "<br>Idade: " +
+                aluno.idade + "<br>E-mail: " + aluno.email + "<br>Contato: " + aluno.telefone +
+                "</div>";
+            }
+        }
+
+        // botão 'voltar':
+        function voltar(){
+            window.history.back();
+        }
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <header><h1>Inscritos</h1></header>
+        
+        <main id="inscritos"></main>
+        
+        <button onclick="voltar()">Voltar</button>
+
+    </div>
+    
+</body>
+</html>

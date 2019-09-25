@@ -1,0 +1,75 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;    
+    margin: 50px;    
+}
+
+h1 {
+    margin: 0;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input {
+    height: 30px;
+    width: 40%;
+    font-size: .7em;
+}
+
+button {
+    width: 20%;
+    height: 30px;
+    margin-top: 20px;
+    color: darkorange;
+    font-weight: bold;
+    font-size: .7em;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid darkorange;
+}
+
+button:hover {
+    background-color: darkorange;
+    color: white;
+}
+
+@media screen and (max-width: 375px) {
+    
+    .container {
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    .botoes {
+        display: flex;
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+    
+    input {
+        width: 100%;
+    }
+}

@@ -1,0 +1,42 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+}
+
+.container {
+    margin: 50px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+main div {    
+    border: 2px dashed darkorange;
+    padding: 20px;
+    display: flex;
+    flex-grow: 1;
+}
+
+
+button {
+    width: 20%;
+    height: 30px;
+    margin-top: 20px;
+    color: darkorange;
+    font-weight: bold;
+    font-size: 1em;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid darkorange;
+}
+
+button:hover {
+    background-color: darkorange;
+    color: white;
+}
