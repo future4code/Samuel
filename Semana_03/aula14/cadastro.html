@@ -40,7 +40,7 @@
             cadastrados.push(aluno);
             // salvar já atualizado, com o item novo:
             salvaItem("alunos", cadastrados);
-            console.log("Cadastrados", cadastrados);
+            // limpar campos para a próxima inscrição:
             limpaCampos();
         }
 
@@ -68,7 +68,7 @@
             <input type="text" id="nome" placeholder="Digite seu nome">
             <label for="nome">Idade:</label>
             <input type="text" id="idade" placeholder="Digite sua idade">
-            <label for="email">E-mail:</label>        
+            <label for="email">E-mail:</label>
             <input type="email" id="email" placeholder="Digite seu e-mail" required>
             <label for="nome">Contato:</label>
             <input type="text" id="telefone" placeholder="Digite seu telefone">
@@ -76,7 +76,7 @@
                 <button onclick="cadastrar()">Cadastrar</button>
                 <button onclick="carregaPagina()">Inscritos</button>
             </div>
-        </section>        
+        </section>
     </div>        
 </body>
 </html>
