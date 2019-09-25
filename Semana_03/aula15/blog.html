@@ -14,21 +14,23 @@
         <section id="formulario">
             <h1>BLOG!</h1>
             <label for="novoPost">Título:</label>
-            <input type="text" id="titulo" placeholder="Título do post...">
+            <input type="text" id="titulo" placeholder="digite o título do post...">
             <label for="autor">Autor(a):</label>
-            <input type="text" id="autor">
+            <input type="text" id="autor" placeholder="digite o nome do autor(a)...">
+            <label for="endImagem">URL da imagem:</label>
+            <input type="text" id="imagemPost" placeholder="coloque aqui a URL da imagem">
             <label for="post">Conteúdo:</label>
-            <textarea name="" id="conteudo" cols="50" rows="10" placeholder="Digite seu texto"></textarea>
+            <textarea name="" id="conteudo" cols="50" rows="10" placeholder="digite seu texto..."></textarea>
             <div class="botoes">
                 <button onclick="criarPost()">Postar</button>
                 <button onclick="limparCampos()">Limpar</button>
             </div>
         </section>
-        <section id="postsDoBlog"></section>
-
+        <section id="postsDoBlog">
+        </section>
     </div>    
 </body>
-<script>    
+<script>
     function buscaItem(chave) {
         const valor = window.localStorage.getItem(chave);
         if (valor) {
@@ -46,9 +48,10 @@
     let posts = [];
 
     class Post {
-        constructor(titulo, autor, conteudo){
+        constructor(titulo, autor, conteudo, imagem){
             this.titulo = titulo;
             this.autor = autor;
+            this.imagem = imagem;
             this.conteudo = conteudo;
         }
     }
@@ -56,29 +59,40 @@
     function criarPost(){
         const titulo = document.getElementById("titulo").value;
         const autor = document.getElementById("autor").value;
+        const urlImagem = document.getElementById("imagemPost").value;
         const conteudo = document.getElementById("conteudo").value;
 
-        // cria um novo post:
-        const novoPost = new Post(titulo, autor, conteudo);
-        // busca no local storage pela lista de posts:
-        posts = buscaItem("posts");
-        // adiciona o novo post ao final da lista:
-        posts.push(novoPost);        
-        // salva a lista atualizada:
-        salvaItem("posts", posts);
-        // imprime no console a lista atualizada:
-        console.log(posts);
-        // limpa campos do formulário:
-        limparCampos();
-        inserirPostNaPagina(posts);
+        //verificação básica/rudimentar rsrsrs (^_^)
+        if(titulo !== "" && autor !== "" && conteudo !== "" && urlImagem !== ""){
+            // cria um novo post:
+            const novoPost = new Post(titulo, autor, conteudo, urlImagem);
+            // busca no LocalStorage pela lista de posts:
+            posts = buscaItem("posts");
+            // adiciona o novo post ao final da lista:
+            posts.push(novoPost);
+            // salva a lista atualizada no LocalStorage:
+            salvaItem("posts", posts);
+            // imprime no console a lista atualizada:
+            console.log(posts);
+            // limpa campos do formulário:
+            limparCampos();
+            // insere os posts na página:
+            inserirPostNaPagina(posts);
+        }
+        else {
+            alert("Post vazio!");
+        }
     }
 
     function inserirPostNaPagina(posts){
         const listaPosts = document.getElementById("postsDoBlog");
+        // 'zerando' a section:
         listaPosts.innerHTML = "";
 
+        // inserindo cada post na página:
         for(let umPost of posts){
-            listaPosts.innerHTML += "<div>" + umPost.titulo + "<br>Escrito por: " + umPost.autor + "<br>" + umPost.conteudo + "</div>";
+            listaPosts.innerHTML += "<div><img src=" + umPost.imagem + ">" + "<br><strong>" + umPost.titulo + "</strong>" + "Escrito por: " + 
+            umPost.autor + "<br><br>" + umPost.conteudo + "</div>";
         }
     }
 
@@ -86,7 +100,10 @@
         document.getElementById("titulo").value = "";
         document.getElementById("autor").value = "";
         document.getElementById("conteudo").value = "";
+        document.getElementById("imagemPost").value = "";
     }
 
+    // certificando-se de que os posts armazenados sejam mostrados ao carregar a página:
+    window.onload = inserirPostNaPagina(buscaItem("posts"));
 </script>
 </html>
