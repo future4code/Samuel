@@ -11,7 +11,7 @@
 <body>
     <div class="container">
 
-        <section>
+        <section id="formulario">
             <h1>BLOG!</h1>
             <label for="novoPost">Título:</label>
             <input type="text" id="titulo" placeholder="Título do post...">
@@ -24,6 +24,7 @@
                 <button onclick="limparCampos()">Limpar</button>
             </div>
         </section>
+        <section id="postsDoBlog"></section>
 
     </div>    
 </body>
@@ -60,7 +61,7 @@
         // cria um novo post:
         const novoPost = new Post(titulo, autor, conteudo);
         // busca no local storage pela lista de posts:
-        buscaItem("posts");
+        posts = buscaItem("posts");
         // adiciona o novo post ao final da lista:
         posts.push(novoPost);        
         // salva a lista atualizada:
@@ -69,6 +70,16 @@
         console.log(posts);
         // limpa campos do formulário:
         limparCampos();
+        inserirPostNaPagina(posts);
+    }
+
+    function inserirPostNaPagina(posts){
+        const listaPosts = document.getElementById("postsDoBlog");
+        listaPosts.innerHTML = "";
+
+        for(let umPost of posts){
+            listaPosts.innerHTML += "<div>" + umPost.titulo + "<br>Escrito por: " + umPost.autor + "<br>" + umPost.conteudo + "</div>";
+        }
     }
 
     function limparCampos(){

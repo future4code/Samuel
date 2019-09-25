@@ -28,3 +28,7 @@ button {
     margin: 15px;
     padding: 15px;
 }
+
+#postsDoBlog div {
+    margin: 10px;    
+}
