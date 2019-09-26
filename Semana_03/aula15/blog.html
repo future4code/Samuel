@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="blog.css">
+    <title>Blog</title>
+</head>
+<body>
+    <div class="container">
+
+        <section id="formulario">
+            <h1>BLOG!</h1>
+            <label for="novoPost">Título:</label>
+            <input type="text" id="titulo" placeholder="digite o título do post...">
+            <label for="autor">Autor(a):</label>
+            <input type="text" id="autor" placeholder="digite o nome do autor(a)...">
+            <label for="endImagem">URL da imagem:</label>
+            <input type="text" id="imagemPost" placeholder="coloque aqui a URL da imagem">
+            <label for="post">Conteúdo:</label>
+            <textarea name="" id="conteudo" cols="50" rows="10" placeholder="digite seu texto..."></textarea>
+            <div class="botoes">
+                <button onclick="criarPost()">Postar</button>
+                <button onclick="limparCampos()">Limpar</button>
+            </div>
+        </section>
+        <section id="postsDoBlog">
+        </section>
+    </div>    
+</body>
+<script>
+    function buscaItem(chave) {
+        const valor = window.localStorage.getItem(chave);
+        if (valor) {
+            return JSON.parse(valor);
+        }
+        return [];
+    }
+
+    function salvaItem(chave, item) {
+        if (item && chave) {
+            window.localStorage.setItem(chave, JSON.stringify(item));
+        }
+    }
+
+    let posts = [];
+
+    class Post {
+        constructor(titulo, autor, conteudo, imagem){
+            this.titulo = titulo;
+            this.autor = autor;
+            this.imagem = imagem;
+            this.conteudo = conteudo;
+        }
+    }
+    
+    function criarPost(){
+        const titulo = document.getElementById("titulo").value;
+        const autor = document.getElementById("autor").value;
+        const urlImagem = document.getElementById("imagemPost").value;
+        const conteudo = document.getElementById("conteudo").value;
+
+        //verificação básica/rudimentar rsrsrs (^_^)
+        if(titulo !== "" && autor !== "" && conteudo !== "" && urlImagem !== ""){
+            // cria um novo post:
+            const novoPost = new Post(titulo, autor, conteudo, urlImagem);
+            // busca no LocalStorage pela lista de posts:
+            posts = buscaItem("posts");
+            // adiciona o novo post ao final da lista:
+            posts.push(novoPost);
+            // salva a lista atualizada no LocalStorage:
+            salvaItem("posts", posts);
+            // imprime no console a lista atualizada:
+            console.log(posts);
+            // limpa campos do formulário:
+            limparCampos();
+            // insere os posts na página:
+            inserirPostNaPagina(posts);
+        }
+        else {
+            alert("Post vazio!");
+        }
+    }
+
+    function inserirPostNaPagina(posts){
+        const listaPosts = document.getElementById("postsDoBlog");
+        // 'zerando' a section:
+        listaPosts.innerHTML = "";
+
+        // inserindo cada post na página:
+        for(let umPost of posts){
+            listaPosts.innerHTML += "<div><img src=" + umPost.imagem + ">" + "<br><strong>" + umPost.titulo + "</strong>" + "Escrito por: " + 
+            umPost.autor + "<br><br>" + umPost.conteudo + "</div>";
+        }
+    }
+
+    function limparCampos(){
+        document.getElementById("titulo").value = "";
+        document.getElementById("autor").value = "";
+        document.getElementById("conteudo").value = "";
+        document.getElementById("imagemPost").value = "";
+    }
+
+    // certificando-se de que os posts armazenados sejam mostrados ao carregar a página:
+    window.onload = inserirPostNaPagina(buscaItem("posts"));
+</script>
+</html>

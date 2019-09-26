@@ -1,0 +1,65 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 1200px;
+    margin: auto;    
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    color: sienna;
+}
+
+section {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+button {
+    margin: 15px;
+    padding: 15px;
+    background-color: cornsilk;
+    border: 1px solid sienna;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    color: sienna;
+}
+
+button:hover {
+    background-color: sienna;
+    color: white;
+
+}
+
+#postsDoBlog div {
+    margin: 10px 0;
+    border: 2px sienna dashed;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: cornsilk;
+}
+
+#postsDoBlog div img {        
+    width: auto;
+    height: auto;
+    border: 1px solid sienna;
+
+}
