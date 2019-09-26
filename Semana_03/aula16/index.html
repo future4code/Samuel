@@ -19,7 +19,8 @@
             </div>
             <div>
                 <label>Tipo de despesa:</label>
-                <select id="tipoDespesa">                    
+                <select id="tipoDespesa">
+                    <option value="">Selecione</option>
                     <option value="alimentacao">Alimentação</option>
                     <option value="casa">Casa</option>
                     <option value="lazer">Lazer</option>
@@ -41,7 +42,8 @@
             <h3>Despesas Detalhadas:</h3>
             <div class="filtro1">                
                 <label>Tipo de despesa:</label>
-                <select id="filtroDespesa">                        
+                <select id="filtroDespesa">
+                    <option value="">Selecione</option>                        
                     <option value="alimentacao">Alimentação</option>
                     <option value="casa">Casa</option>
                     <option value="lazer">Lazer</option>
@@ -58,16 +60,21 @@
                 <label>Valor máximo:</label>
                 <input type="text" id="valorMax">
             </div>
-            <button>Filtrar</button>            
+            <div>
+                <button>Filtrar</button>
+                <button onclick="mostrarTodas()">Limpar filtros</button>
+            </div>
             <table id="tabelaDespesas">
                 <tr>
                     <th>Descrição</th>
                     <th>Tipo</th>
                     <th>Valor</th>
                 </tr>
-                    <td>teste Descrição</td>
-                    <td>teste tipo</td>
-                    <td>teste valor</td>                    
+                <tr>
+                    <td>testeDescrição</td>
+                    <td>testeTipo</td>
+                    <td>testeValor</td>                    
+                </tr>
                 <tr>
                     <td>teste d2</td>
                     <td>teste t2</td>
@@ -125,19 +132,59 @@
         const vlDespesa = document.getElementById("valorDespesa").value;
         const tpDespesa = document.getElementById("tipoDespesa").value;
         const dsDespesa = document.getElementById("descricaoDespesa").value;
-
-        const novaDespesa = new Despesa(vlDespesa, tpDespesa, dsDespesa);
-
-        minhasDespesas = buscaItem("despesas");
-        minhasDespesas.push(novaDespesa);
-        salvaItem("despesas", minhasDespesas);
-
-        limparCampos();
+        // validação de dados para cadastrar uma nova despesa:
+        if(parseInt(vlDespesa) === 0 || vlDespesa === ""){
+            alert("Digite um valor para a despesa.");
+        }else if(tpDespesa === ""){
+            alert("Escolha o tipo de despesa.");
+        }else if(dsDespesa === ""){
+            alert("Escreva uma descrição antes de cadastrar.");
+        }else{
+            const novaDespesa = new Despesa(vlDespesa, tpDespesa, dsDespesa);
+            minhasDespesas = buscaItem("despesas");
+            minhasDespesas.push(novaDespesa);
+            salvaItem("despesas", minhasDespesas);
+            limparCampos();
+        }
     }
 
+    // mostra todas (ou seja, sem filtro nenhum, ainda):
+    function mostrarTodas(){
+        insereDespesasNaLista(buscaItem("despesas"));
+    }
+
+    // insere despesas na lista, já filtradas ou não:
+    function insereDespesasNaLista(despesasParaMostrar){
+        const novaListaDespesa = document.getElementById("tabelaDespesas");
+        novaListaDespesa.innerHTML = "<tr><th>Descrição</th><th>Tipo</th><th>Valor</th></tr>";
+        
+        for(let item of despesasParaMostrar){
+            novaListaDespesa.innerHTML += renderizaDespesa(item);
+        }
+    }
+
+    // renderiza a despesa numa linha da tabela:
+    function renderizaDespesa(despesaPraRenderizar){
+        return "<tr><td>"+despesaPraRenderizar.descricaoDespesa+"</td><td>"+
+                despesaPraRenderizar.tipoDespesa+"</td><td>"+
+                parseInt(despesaPraRenderizar.valorDespesa)+"</td></tr>";
+    }
+
+    // função pra somar as despesas do mesmo tipo: 
+    /*
+    function calculaDespesaPorTipo(tpDespesa){
+        const despesasDeUmTipo = minhasDespesas.filter((element) => {
+            return (element.tipoDespesa === tpDespesa);
+        }
+        )
+        console.log(despesasDeUmTipo);
+        somar as despesas do novo array e tals...
+    }
+    */
+
     function limparCampos(){
-        document.getElementById("valorDespesa").value = "0";
-        document.getElementById("tipoDespesa").value = "alimentacao";
+        document.getElementById("valorDespesa").value = "";
+        document.getElementById("tipoDespesa").value = "";
         document.getElementById("descricaoDespesa").value = "";
     }
 
