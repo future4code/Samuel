@@ -11,15 +11,14 @@
 <script>
 
 /* Exercícios de interpretação de código */
-
 /* 
-1) O exercício possui uma função (com parâmetro) que converte um valor em dólares, 
+1-1) O exercício possui uma função (com parâmetro) que converte um valor em dólares, 
 considerando o valor da cotação do dólar informada previamente pelo usuário, através
 do prompt. Como a função é chamada com o argumento '100', e supondo que a cotação 
 informada seja '2', irá aparecer no console a mensagem "R$ 200".
 
 
-2) Neste, temos uma função que recebe dois parâmetros: tipo de investimento e valor a
+1-2) Neste, temos uma função que recebe dois parâmetros: tipo de investimento e valor a
 a ser investido. Quando invocada, a função verifica o tipo de investimento dentre as
 opções presentes ('Poupança', 'Renda Fixa', 'CDB' ou 'Ações') e retorna o valor total
 (valor investido + rendimento) dessa aplicação. Caso seja informado algum tipo inválido
@@ -28,7 +27,7 @@ como a seguir:
 >> 165
 >> TIPO DE INVESTIMENTO INFORMADO INCORRETO!
 
-3) O exercício possui três vetores: 'numeros', 'array1' e 'array2'. Apenas o primeiro está 
+1-3) O exercício possui três vetores: 'numeros', 'array1' e 'array2'. Apenas o primeiro está 
 preenchido com números. Logo em seguida, esse primeiro vetor é percorrido através de um 'for',
 verificando a paridade de cada um dos seus elementos. Se o elemento é 'par', ele é copiado 
 para dentro de 'array1' e, caso contrário, ele é copiado para dentro do 'array2'. O console
@@ -38,15 +37,38 @@ imprime 3 linhas, nesse exercício, como a seguir, sendo que na primeira é util
 >> 6
 >> 8
 
-4) Dado um vetor com diversos números, o exercício itera (através do loop 'for') sobre cada
+1-4) Dado um vetor com diversos números, o exercício itera (através do loop 'for') sobre cada
 um dos elementos desse vetor, comparando-os com valores estabelecidos para 'maior' (infinito)
 e 'menor' (0). Após o loop, o console exibe o menor valor encontrado e o maior valor encontrado,
 respectivamente, no vetor:
 >> -10
 >> 1590
-
 */
 
+/* Exercícios de Lógica de Programação */
+
+function exercs2_01(){
+    // 2-1) Três maneiras de percorrer a lista, usando 'loops':
+    // lista para exemplo:
+    const lista = [11, 22, 33, 44, 55]; 
+    // Opção A:
+    for(let i = 0; i < lista.length; i++){
+        console.log("Elemento na posição " + i + " é " + lista[i]);
+    }
+    // Opção B:
+    let i = 0;
+    while(i < lista.length){
+        console.log("Elemento na posição " + i + " é " + lista[i]);
+        i++;
+    }
+    // Opção C:
+    let elementos = "";
+    for(let numero of lista){
+        elementos += numero + " ";
+    }
+    console.log("Elementos na lista: ", elementos);
+}
+//exercs2_01();
 
 
 
