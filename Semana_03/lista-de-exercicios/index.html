@@ -108,7 +108,40 @@ function classificaTriangulo(a, b, c){
     }
 }
 
+function exercs2_05(){
+    let num1 = Number(prompt("Digite o primeiro número:")); // caso 1: 30 // caso 2: 15
+    let num2 = Number(prompt("Digite o segundo número:")); // caso 1: 15 // caso 2: 30
+    let aux = 0;
 
+    console.log("ENTRADA:\n" + num1 + " e " + num2);
+    console.log("\nSAÍDA:");
+
+    // item I:
+    if(num1 > num2){
+        console.log("O maior é:", num1);
+    }else{
+        aux = num1; // aux = 15
+        num1 = num2; // num1 = 30
+        num2 = aux; // num2 = 15
+        console.log("O maior é:", num1);
+    }
+
+    // item II:
+    if(num1 % num2 === 0){
+        console.log(num1 + " é divisível por " + num2);
+    }else{
+        console.log(num1 + " não é divisível por " + num2);
+    }
+    if(num2 % num1 === 0){
+        console.log(num2 + " é divisível por " + num1);
+    }else{
+        console.log(num2 + " não é divisível por " + num1);
+    }
+
+    // item III:
+    console.log("A diferença entre ele é", (num1 - num2));
+}
+//exercs2_05();
 
 </script>
 </html>
