@@ -210,11 +210,31 @@ const filmeFavorito = {
     atores: ["Sam Worthington", " Zoë Saldaña", " Sigourney Weaver", " Stephen Lang", 
              " Michelle Rodriguez", " Giovanni Ribisi", " Joel David Moore"]
 }
+/*
 console.log("Venha assistir ao filme " + filmeFavorito.titulo + ", de " +
             filmeFavorito.ano + ", dirigido por " + filmeFavorito.diretor +
             " e estrelado por " + filmeFavorito.atores);
+*/
 
-
+// 4-04)
+const pessoa = {
+    nome: "Fulano",
+    idade: 30,
+    email: "emaildofulano@gmail.com",
+    endereco: "Endereço do Fulano"    
+}
+// no exercício não especifica se é passado como parâmetro...
+function anonimizarPessoa(){
+    const pessoaAnonima = {
+        nome: "ANÔNIMO",
+        idade: pessoa.idade,
+        email: pessoa.email,
+        endereco: pessoa.endereco
+    }
+    return pessoaAnonima;
+}
+console.log(pessoa);
+console.log(anonimizarPessoa());
 
 </script>
 </html>
