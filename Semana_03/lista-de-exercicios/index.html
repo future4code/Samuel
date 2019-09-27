@@ -233,8 +233,37 @@ function anonimizarPessoa(){
     }
     return pessoaAnonima;
 }
+/*
 console.log(pessoa);
 console.log(anonimizarPessoa());
+*/
+
+/* Exercícios de Funções de Array */
+// 1)
+const grupo = [
+	{ nome: "Pedro", idade: 20 },
+	{ nome: "João", idade: 10 },
+	{ nome: "Paula", idade: 12 },
+	{ nome: "Artur", idade: 89 } 
+]
+
+// 5-1-a)
+function retornaAdultos(){
+    const adultos = grupo.filter(elements => {
+        return (elements.idade >= 20);
+    });
+    return adultos;
+}
+console.log(retornaAdultos());
+
+// 5-1-b)
+function retornaCriancasOuAdolescentes(){
+    const criancasOuAdolescentes = grupo.filter(elements => {
+        return (elements.idade < 20);
+    });
+    return criancasOuAdolescentes;
+}
+console.log(retornaCriancasOuAdolescentes());
 
 </script>
 </html>
