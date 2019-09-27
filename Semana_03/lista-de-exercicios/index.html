@@ -143,5 +143,40 @@ function exercs2_05(){
 }
 //exercs2_05();
 
+function exercs3_01(meusNumeros){
+    console.log(meusNumeros);
+    let maior = meusNumeros[0];
+    let menor = meusNumeros[0];
+    let segundoMaior = meusNumeros[0];
+    let segundoMenor = meusNumeros[0];
+    
+    for(let element of meusNumeros){
+        if(element > maior){
+            maior = element;
+        }
+        if(element < menor){
+            menor = element;
+        }
+    }
+    console.log("Maior número:", maior);
+    console.log("Menor número:", menor);
+
+    for(let element of meusNumeros){
+        if((element > segundoMaior) && (element < maior)){
+            segundoMaior = element;
+        }
+        if((element < segundoMenor) && (element > menor)){
+            segundoMenor = element;
+        }
+    }
+    console.log("Segundo maior número:", segundoMaior);
+    console.log("Segundo menor número:", segundoMenor);
+}
+const meusNumeros = [5,8,3,10,11,7,15,18,3,2];
+exercs3_01(meusNumeros);
+
+
+
+
 </script>
 </html>
