@@ -77,9 +77,25 @@ b) F
 c) V
 d) V
 e) V
-
-
 */
+
+/*
+2-3) O código estava errado porque não pedia o número de termos para o usuário;
+além disso, é preciso subtrair '1' desse valor, pra que o loop itere a quantidade
+certa de vezes, já que o exercício está considerando o '0' como 'par inicial'.
+Outro problema também é que o contador 'i' não era incrementado, fazendo com que
+o programa entrasse em 'loop infinito'. Segue a versão corrigida:
+*/
+function exercs2_03(){
+    const quantidadeDeNumerosPares = Number(prompt("Digite a quantidade de termos:"))-1;
+    let i = 0;
+    while(i <= quantidadeDeNumerosPares) {
+    console.log(i*2);
+    i++;
+    }
+}
+//exercs2_03();
+
 
 </script>
 </html>
