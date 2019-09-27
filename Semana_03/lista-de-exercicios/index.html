@@ -296,9 +296,9 @@ function retornaTriploEmString(){
 function retornaParidade(){
     const arrayParidade = array.map(elements => {
         if(elements % 2 === 0){
-            return elements +" é par";
+            return (elements +" é par");
         }else{
-            return elements +" é ímpar";
+            return (elements +" é ímpar");
         }
     });
     return arrayParidade;
@@ -335,14 +335,49 @@ function retornaProibidos(){
     });
     return proibidos;
 }
+/*
 console.log("Grupo:", pessoas);
 console.log("Pessoas permitidas:", retornaPermitidos());
 console.log("Pessoas proibidas:", retornaProibidos());
+*/
 
+// 5-4)
+const consultas = [
+	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+]
 
-
-
-
+function gerarEmails(){
+    const emails = consultas.map(elements => {
+        if(elements.genero === "masculino"){
+            if(elements.cancelada){
+                return "Olá, Sr. " + elements.nome + ". Infelizmente, sua consulta marcada "+
+                "para o dia " + elements.dataDaConsulta + " foi cancelada. Se quiser, pode "+
+                "entrar em contato conosco para remarcá-la."
+            }else{                
+                return "Olá, Sr. " + elements.nome + ". Estamos enviando esta mensagem para "+
+                "lembrá-lo da sua consulta no dia " + elements.dataDaConsulta + ". Por favor, "+
+                "acuse o recebimento deste e-mail."
+            }        
+        }else{
+            if(elements.cancelada){                
+                return "Olá, Sra. " + elements.nome + ". Infelizmente, sua consulta marcada "+
+                "para o dia " + elements.dataDaConsulta + " foi cancelada. Se quiser, pode "+
+                "entrar em contato conosco para remarcá-la."
+            }
+            else{
+                return "Olá, Sra. " + elements.nome + ". Estamos enviando esta mensagem para "+
+                "lembrá-la da sua consulta no dia " + elements.dataDaConsulta + ". Por favor, "+
+                "acuse o recebimento deste e-mail."
+            }
+        }
+    });
+    return emails;
+}
+console.log(consultas);
+console.log(gerarEmails());
 
 
 </script>
