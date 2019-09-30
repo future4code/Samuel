@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de Exercícios</title>
+</head>
+<body>    
+</body>
+<script>
+
+/* Exercícios de interpretação de código */
+/* 
+1-1) O exercício possui uma função (com parâmetro) que converte um valor em dólares, 
+considerando o valor da cotação do dólar informada previamente pelo usuário, através
+do prompt. Como a função é chamada com o argumento '100', e supondo que a cotação 
+informada seja '2', irá aparecer no console a mensagem "R$ 200".
+
+
+1-2) Neste, temos uma função que recebe dois parâmetros: tipo de investimento e valor a
+a ser investido. Quando invocada, a função verifica o tipo de investimento dentre as
+opções presentes ('Poupança', 'Renda Fixa', 'CDB' ou 'Ações') e retorna o valor total
+(valor investido + rendimento) dessa aplicação. Caso seja informado algum tipo inválido
+de investimento, o usuário recebe um alerta informando-o. O console imprime duas linhas, 
+como a seguir:
+>> 165
+>> TIPO DE INVESTIMENTO INFORMADO INCORRETO!
+
+1-3) O exercício possui três vetores: 'numeros', 'array1' e 'array2'. Apenas o primeiro está 
+preenchido com números. Logo em seguida, esse primeiro vetor é percorrido através de um 'for',
+verificando a paridade de cada um dos seus elementos. Se o elemento é 'par', ele é copiado 
+para dentro de 'array1' e, caso contrário, ele é copiado para dentro do 'array2'. O console
+imprime 3 linhas, nesse exercício, como a seguir, sendo que na primeira é utilizado o protótipo
+'lenght', que retorna a quantidade de elementos de um vetor:
+>> Quantidade total de números 14
+>> 6
+>> 8
+
+1-4) Dado um vetor com diversos números, o exercício itera (através do loop 'for') sobre cada
+um dos elementos desse vetor, comparando-os com valores estabelecidos para 'maior' (infinito)
+e 'menor' (0). Após o loop, o console exibe o menor valor encontrado e o maior valor encontrado,
+respectivamente, no vetor:
+>> -10
+>> 1590
+*/
+
+/* Exercícios de Lógica de Programação */
+
+function exercs2_01(){
+    // 2-1) Três maneiras de percorrer a lista, usando 'loops':
+    // lista para exemplo:
+    const lista = [11, 22, 33, 44, 55]; 
+    // Opção A:
+    for(let i = 0; i < lista.length; i++){
+        console.log("Elemento na posição " + i + " é " + lista[i]);
+    }
+    // Opção B:
+    let i = 0;
+    while(i < lista.length){
+        console.log("Elemento na posição " + i + " é " + lista[i]);
+        i++;
+    }
+    // Opção C:
+    let elementos = "";
+    for(let numero of lista){
+        elementos += numero + " ";
+    }
+    console.log("Elementos na lista: ", elementos);
+}
+//exercs2_01();
+
+/*
+2-2)
+a) F
+b) F
+c) V
+d) V
+e) V
+*/
+
+/*
+2-3) O código estava errado porque não pedia o número de termos para o usuário;
+além disso, é preciso subtrair '1' desse valor, pra que o loop itere a quantidade
+certa de vezes, já que o exercício está considerando o '0' como 'par inicial'.
+Outro problema também é que o contador 'i' não era incrementado, fazendo com que
+o programa entrasse em 'loop infinito'. Segue a versão corrigida:
+*/
+function exercs2_03(){
+    const quantidadeDeNumerosPares = Number(prompt("Digite a quantidade de termos:"))-1;
+    let i = 0;
+    while(i <= quantidadeDeNumerosPares) {
+    console.log(i*2);
+    i++;
+    }
+}
+//exercs2_03();
+
+
+// 2-4) Função para classificar triângulos:
+function classificaTriangulo(a, b, c){
+    if((a === b) && (a === c)){
+        console.log("Triângulo equilátero!");
+    }else if(((a === b) && (a !== c)) || ((a === c) && (a !== b)) || ((b === c) && (b !== a))){
+        console.log("Triângulo isósceles!");
+    }else{
+        console.log("Triangulo escaleno!");
+    }
+}
+
+function exercs2_05(){
+    let num1 = Number(prompt("Digite o primeiro número:")); // caso 1: 30 // caso 2: 15
+    let num2 = Number(prompt("Digite o segundo número:")); // caso 1: 15 // caso 2: 30
+    let aux = 0;
+
+    console.log("ENTRADA:\n" + num1 + " e " + num2);
+    console.log("\nSAÍDA:");
+
+    // item I:
+    if(num1 > num2){
+        console.log("O maior é:", num1);
+    }else{
+        aux = num1; // aux = 15
+        num1 = num2; // num1 = 30
+        num2 = aux; // num2 = 15
+        console.log("O maior é:", num1);
+    }
+
+    // item II:
+    if(num1 % num2 === 0){
+        console.log(num1 + " é divisível por " + num2);
+    }else{
+        console.log(num1 + " não é divisível por " + num2);
+    }
+    if(num2 % num1 === 0){
+        console.log(num2 + " é divisível por " + num1);
+    }else{
+        console.log(num2 + " não é divisível por " + num1);
+    }
+
+    // item III:
+    console.log("A diferença entre ele é", (num1 - num2));
+}
+//exercs2_05();
+
+
+/* Exercício de Funções */
+
+// 3-1)
+function exercs3_01(meusNumeros){
+    console.log(meusNumeros);
+    let maior = meusNumeros[0];
+    let menor = meusNumeros[0];
+    let segundoMaior = meusNumeros[0];
+    let segundoMenor = meusNumeros[0];
+    
+    for(let element of meusNumeros){
+        if(element > maior){
+            maior = element;
+        }
+        if(element < menor){
+            menor = element;
+        }
+    }
+    console.log("Maior número:", maior);
+    console.log("Menor número:", menor);
+
+    for(let element of meusNumeros){
+        if((element > segundoMaior) && (element < maior)){
+            segundoMaior = element;
+        }
+        if((element < segundoMenor) && (element > menor)){
+            segundoMenor = element;
+        }
+    }
+    console.log("Segundo maior número:", segundoMaior);
+    console.log("Segundo menor número:", segundoMenor);
+}
+//const meusNumeros = [5,8,3,10,11,7,15,18,3,2];
+//exercs3_01(meusNumeros);
+
+// 3-2)
+const exercs3_02 = () => { alert("Hello Future4"); }
+//exercs3_02();
+
+
+
+/* Exercícios de Objetos */
+
+/*
+4-1)
+Objetos são um tipo especial de variável que, por sua vez, guarda outras variáveis, 
+sejam elas do tipo que for (outros objetos, inclusive). Não é possível ordenar essas
+variáveis dentro dele e, por isso, é usado mais quando se quer apenas agrupar outros
+dados, sem se preocupar com a ordem deles. Já o Array, embora também sirva pra agrupar
+outros dados, faz isso de forma ordenada, sequencial. É possível identificar os elementos
+de um array por um índice. Sendo assim, é mais utilizado para modelar listas.
+*/
+
+// 4-02)
+function criaRetangulo(lado1, lado2){
+    const meuRetangulo = {
+        largura: lado1,
+        altura: lado2,
+        perimetro: (2 * (lado1 + lado2)),
+        area: (lado1 * lado2)
+    }
+    return meuRetangulo;
+}
+//console.log(criaRetangulo(2,4));
+
+// 4-03)
+const filmeFavorito = {
+    titulo: "Avatar",
+    ano: 2009,
+    diretor: "James Cameron",
+    atores: ["Sam Worthington", " Zoë Saldaña", " Sigourney Weaver", " Stephen Lang", 
+             " Michelle Rodriguez", " Giovanni Ribisi", " Joel David Moore"]
+}
+/*
+console.log("Venha assistir ao filme " + filmeFavorito.titulo + ", de " +
+            filmeFavorito.ano + ", dirigido por " + filmeFavorito.diretor +
+            " e estrelado por " + filmeFavorito.atores);
+*/
+
+// 4-04)
+const pessoa = {
+    nome: "Fulano",
+    idade: 30,
+    email: "emaildofulano@gmail.com",
+    endereco: "Endereço do Fulano"    
+}
+// no exercício não especifica se é passado como parâmetro...
+function anonimizarPessoa(){
+    const pessoaAnonima = {
+        nome: "ANÔNIMO",
+        idade: pessoa.idade,
+        email: pessoa.email,
+        endereco: pessoa.endereco
+    }
+    return pessoaAnonima;
+}
+/*
+console.log(pessoa);
+console.log(anonimizarPessoa());
+*/
+
+/* Exercícios de Funções de Array */
+
+// 5-1)
+const grupo = [
+	{ nome: "Pedro", idade: 20 },
+	{ nome: "João", idade: 10 },
+	{ nome: "Paula", idade: 12 },
+	{ nome: "Artur", idade: 89 } 
+]
+
+// 5-1-a)
+function retornaAdultos(){
+    const adultos = grupo.filter(elements => {
+        return (elements.idade >= 20);
+    });
+    return adultos;
+}
+//console.log(retornaAdultos());
+
+// 5-1-b)
+function retornaCriancasOuAdolescentes(){
+    const criancasOuAdolescentes = grupo.filter(elements => {
+        return (elements.idade < 20);
+    });
+    return criancasOuAdolescentes;
+}
+//console.log(retornaCriancasOuAdolescentes());
+
+// 5-2)
+const array = [1, 2, 3, 4, 5, 6];
+
+// 5-2-a)
+function retornaDobro(){
+    const arrayEmDobro = array.map(elements => {
+        return (elements * 2);
+    });
+    return arrayEmDobro;
+}
+
+// 5-2-b)
+function retornaTriploEmString(){
+    const arrayTriploEmString = array.map(elements => {
+        return ((elements * 3) + "");
+    });
+    return arrayTriploEmString;
+}
+
+// 5-2-c)
+function retornaParidade(){
+    const arrayParidade = array.map(elements => {
+        if(elements % 2 === 0){
+            return (elements +" é par");
+        }else{
+            return (elements +" é ímpar");
+        }
+    });
+    return arrayParidade;
+}
+/*
+console.log("Array original:", array);
+console.log("Array * 2:", retornaDobro());
+console.log("Array * 3, em String:", retornaTriploEmString());
+console.log("Paridade do Array:", retornaParidade());
+*/
+
+// 5-3)
+const pessoas = [
+	{ nome: "Paula", idade: 12, altura: 1.8},
+	{ nome: "João", idade: 20, altura: 1.3},
+	{ nome: "Pedro", idade: 15, altura: 1.9},
+	{ nome: "Luciano", idade: 22, altura: 1.8},
+	{ nome: "Artur", idade: 10, altura: 1.2},
+	{ nome: "Soter", idade: 70, altura: 1.9}
+]
+
+// 5-3-a)
+function retornaPermitidos(){
+    const permitidos = pessoas.filter(elements => {
+        return ((elements.idade > 14) && (elements.idade < 60) && (elements.altura >= 1.5));        
+    });
+    return permitidos;
+}
+
+// 5-3-b)
+function retornaProibidos(){
+    const proibidos = pessoas.filter(elements => {
+        return ((elements.idade < 14) || (elements.idade > 60) || (elements.altura < 1.5));        
+    });
+    return proibidos;
+}
+/*
+console.log("Grupo:", pessoas);
+console.log("Pessoas permitidas:", retornaPermitidos());
+console.log("Pessoas proibidas:", retornaProibidos());
+*/
+
+// 5-4)
+const consultas = [
+	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+]
+
+function gerarEmails(){
+    const emails = consultas.map(elements => {
+        if(elements.genero === "masculino"){
+            if(elements.cancelada){
+                return "Olá, Sr. " + elements.nome + ". Infelizmente, sua consulta marcada "+
+                "para o dia " + elements.dataDaConsulta + " foi cancelada. Se quiser, pode "+
+                "entrar em contato conosco para remarcá-la."
+            }else{                
+                return "Olá, Sr. " + elements.nome + ". Estamos enviando esta mensagem para "+
+                "lembrá-lo da sua consulta no dia " + elements.dataDaConsulta + ". Por favor, "+
+                "acuse o recebimento deste e-mail."
+            }        
+        }else{
+            if(elements.cancelada){                
+                return "Olá, Sra. " + elements.nome + ". Infelizmente, sua consulta marcada "+
+                "para o dia " + elements.dataDaConsulta + " foi cancelada. Se quiser, pode "+
+                "entrar em contato conosco para remarcá-la."
+            }
+            else{
+                return "Olá, Sra. " + elements.nome + ". Estamos enviando esta mensagem para "+
+                "lembrá-la da sua consulta no dia " + elements.dataDaConsulta + ". Por favor, "+
+                "acuse o recebimento deste e-mail."
+            }
+        }
+    });
+    return emails;
+}
+//console.log(consultas);
+//console.log(gerarEmails());
+
+// 5-5)
+const contas = [
+	{ cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+	{ cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+	{ cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+	{ cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+	{ cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+	{ cliente: "Soter", saldoTotal: 1200, compras: [] }
+]
+
+function atualizaSaldo(contasPraAtualizar){
+    let totalDevedor = 0;
+    contasPraAtualizar.forEach(elements => {        
+        for(let compra of elements.compras){
+            totalDevedor+= compra;
+        }
+        elements.saldoTotal -= totalDevedor;
+        totalDevedor = 0;
+    });
+}
+atualizaSaldo(contas);
+console.log(contas);
+
+</script>
+</html>
