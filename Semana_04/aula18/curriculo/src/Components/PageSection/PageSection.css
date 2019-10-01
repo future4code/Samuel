@@ -1,21 +1,30 @@
-* {
-    margin: 0;
-    padding: 10px 0;
-}
-
 .dadosPessoais {
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-direction: column;
-    /*border: 1px solid red; teste de borda*/ 
+    flex-direction: column;    
     background-color: burlywood;
+    align-items: center;
 }
 
 h1{
+    margin: 0;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.minhasExperiencias {
+.experiencias {
     background-color: aqua;
+    display: flex;
+    flex-direction: column;    
+}
+
+.redesSociais {
+    background-color: cadetblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }

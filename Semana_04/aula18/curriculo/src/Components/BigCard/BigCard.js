@@ -3,7 +3,7 @@ import './BigCard.css';
 
 export function BigCard(props){
     return (
-        <div className="container">
+        <div className="containerBig">
             <img src={ props.imagem } className="minhaFoto" alt=""/>
             <div className="texto">
                 <h4>{ props.titulo }</h4>
