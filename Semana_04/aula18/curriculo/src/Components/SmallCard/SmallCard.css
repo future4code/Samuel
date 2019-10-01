@@ -1,0 +1,26 @@
+.containerSmall {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerSmall p {
+    margin: 0;
+    padding: 0;
+    
+}
+
+.meuIcone {    
+    height: 25px;
+    width: auto;
+}
+
+.etiqueta {
+    font-weight: bold;
+}
+
+.info {
+    
+}

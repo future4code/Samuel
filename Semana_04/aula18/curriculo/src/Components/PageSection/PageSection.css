@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 10px 0;
+}
+
+.dadosPessoais {
+    display: flex;
+    flex-direction: column;
+    /*border: 1px solid red; teste de borda*/ 
+    background-color: burlywood;
+}
+
+h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.minhasExperiencias {
+    background-color: aqua;
+}

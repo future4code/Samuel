@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.minhaFoto {
+    width: auto;
+    height: 80px;
+    border-radius: 50%;
+}
+
