@@ -1,0 +1,16 @@
+.video-card-container {
+    border: 1px solid green;
+    width: 200px;
+    height: 150px;
+}
+
+.title-container {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+p {
+    margin: 0;    
+}
