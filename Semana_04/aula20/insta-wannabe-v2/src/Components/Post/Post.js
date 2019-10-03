@@ -64,27 +64,31 @@ class Post extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            curtido: false,
+            curtido: false, // valor inicial, coração vazio
             iconeCoracao: iconeCoracaoVazio,
             iconeComentario: iconeComentario,
         }
     }
 
-    aoSerCurtido = () => {
-        const novoStatusCurtir = this.state.curtido;
-        this.setState({curtido: !novoStatusCurtir});
-
-        if(this.state.curtido){
-            console.log("curtido é true");
-            this.setState({iconeCoracao: iconeCoracaoCheio});
-        }
-        else{
-            console.log("curtido é false");
-            this.setState({iconeCoracao: iconeCoracaoVazio});
-        }
-    };
-
     render(){
+        this.aoSerCurtido = () => {
+            console.log("valor de curtido antes da alteração:", this.state.curtido); 
+            const novoStatusCurtir = !this.state.curtido; 
+            console.log("valor de novoStatusCurtir, que inverte o valor de curtido:", novoStatusCurtir);
+            this.setState({curtido: novoStatusCurtir}); 
+            console.log("valor de curtido:", this.state.curtido);
+            
+            /*
+            if(this.state.curtido){
+                console.log("curtido é true");
+                //this.setState({iconeCoracao: iconeCoracaoCheio});
+            }
+            else{
+                console.log("curtido é false");
+                //this.setState({iconeCoracao: iconeCoracaoVazio});
+            }
+            */
+        };
 
         return (
             <PostContainer>
