@@ -22,9 +22,33 @@ class Entrada extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            campoUsuario: "Usuário",
-            campoMensagem: "Digite sua mensagem...",
+            campoUsuario: "",
+            campoMensagem: "",
         }
+    }
+
+    aoEnviarMensagem = () =>{
+        const user = this.state.campoUsuario;
+        const mensagem = this.state.campoMensagem;
+        const novaMensagem = {
+            nomeUsuario: user,
+            texto: mensagem,
+        }
+        this.props.minhaNovaMensagem(novaMensagem);
+        //pra 'limpar' o campoMensagem depois do envio:
+        this.setState({campoMensagem: ""}) 
+    }
+
+    aoMudarUsuario = (event) => {
+        this.setState({
+            campoUsuario: event.target.value,
+        })
+    }
+
+    aoMudarMensagem = (event) => {
+        this.setState({
+            campoMensagem: event.target.value,
+        })
     }
 
     render(){
@@ -33,13 +57,17 @@ class Entrada extends React.Component {
             <BigContainer>
                 <CampoUser 
                     type="text"
-                    placeholder={this.state.campoUsuario}
-                />                
+                    placeholder="Usuário"
+                    value={this.state.campoUsuario}
+                    onChange={this.aoMudarUsuario}
+                />
                 <CampoMensagem 
                     type="text"
-                    placeholder={this.state.campoMensagem}
+                    placeholder="Digite sua mensagem..."
+                    value={this.state.campoMensagem}
+                    onChange={this.aoMudarMensagem}
                 />
-                <button>Enviar</button>
+                <button onClick={this.aoEnviarMensagem}>Enviar</button>
             </BigContainer>
         )
     }

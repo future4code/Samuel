@@ -7,7 +7,7 @@ const BigContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: left;  
+  align-items: left;
   min-height: 100vh;
   background-color: beige;
   width: 600px;
@@ -20,27 +20,41 @@ const ContainerMensagens = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding-left: 10px;  
+  padding-left: 10px;
   justify-content: flex-end;
-  
 `
 
 class App extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      listaMensagem: [],
+    }
+  }
+
+  adicionarMensagemNaLista = (novaMensagem) => {
+    const novaListaMensagens = [...this.state.listaMensagem];
+    novaListaMensagens.push(novaMensagem);
+    this.setState({listaMensagem: novaListaMensagens});
   }
 
   render(){
+
+    const minhaListaMensagens = this.state.listaMensagem.map((element)=> {
+      return (
+        <Mensagem 
+          nomeUsuario={element.nomeUsuario} 
+          texto={element.texto} 
+        />
+      )
+    })
+
     return (
       <BigContainer>
         <ContainerMensagens>
-          {/* só a título de teste, coloquei os inputs 'na mão' mesmo: */}
-          <Mensagem nomeUsuario="Nome-do-Usuário" texto="Blablabla" />
-          <Mensagem nomeUsuario="Nome-do-Usuário" texto="Blablabla" />
-          <Mensagem nomeUsuario="Nome-do-Usuário" texto="Blablabla" />
-          <Mensagem nomeUsuario="Nome-do-Usuário" texto="Blablabla" />
-        </ContainerMensagens>      
-        <Entrada />
+          {minhaListaMensagens}
+        </ContainerMensagens>
+        <Entrada minhaNovaMensagem={this.adicionarMensagemNaLista}/>
       </BigContainer>
     );
  }
