@@ -38,7 +38,10 @@ class EtapaUm extends React.Component {
     }
     aoMudarEmail = (event) => {
         this.setState({email: event.target.value});
-    }    
+    }
+    aoEscolherOpcao = (event) => {
+        this.setState({escolaridade: event.target.value})
+    }
 
     render(){
 
@@ -46,7 +49,7 @@ class EtapaUm extends React.Component {
             <Container>
                 <TituloEtapa>ETAPA I - Dados Gerais</TituloEtapa>
                 <NomeCampo>Nome:</NomeCampo>
-                <input 
+                <input
                     type="text"
                     placeholder="Digite seu nome"
                     value={this.state.nome}
@@ -54,15 +57,15 @@ class EtapaUm extends React.Component {
                 />
 
                 <NomeCampo>Idade:</NomeCampo>
-                <input 
-                    type="text"                    
+                <input
+                    type="text"
                     placeholder="Digite sua idade"
                     value={this.state.idade}
                     onChange={this.aoMudarIdade}
                 />
 
                 <NomeCampo>E-mail:</NomeCampo>
-                <input 
+                <input
                     type="email"
                     placeholder="Digite seu e-mail"
                     value={this.state.email}
@@ -70,7 +73,7 @@ class EtapaUm extends React.Component {
                 />
 
                 <NomeCampo>Escolaridade:</NomeCampo>
-                <select>
+                <select onChange={this.aoEscolherOpcao}>
                     <option value="emc">Ensino Médio Completo</option>
                     <option value="emi">Ensino Médio Incompleto</option>
                     <option value="esc">Ensino Superior Completo</option>
@@ -80,5 +83,4 @@ class EtapaUm extends React.Component {
         );
     }
 }
-
 export default EtapaUm;

@@ -30,7 +30,10 @@ class EtapaTres extends React.Component {
     
     aoIncluirMotivo = (event) => {
         this.setState({motivo: event.target.value});
-    }    
+    }
+    aoEscolherOpcao = (event) => {
+        this.setState({extra: event.target.value});
+    }
 
     render(){
 
@@ -46,7 +49,7 @@ class EtapaTres extends React.Component {
                 />
 
                 <NomeCampo>Realizou cursos complementares?:</NomeCampo>
-                <select>
+                <select onChange={this.aoEscolherOpcao}>
                     <option value="tecnico">Curso(s) técnico(s)</option>
                     <option value="ingles">Curso de inglês</option>
                     <option value="nda">Nenhuma das opções anteriores</option>                    
