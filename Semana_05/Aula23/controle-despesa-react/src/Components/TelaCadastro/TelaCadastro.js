@@ -8,10 +8,10 @@ const ContainerCadastro = styled.div`
     align-items: center;
 `
 
-export function TelaCadastro(){
+export function TelaCadastro(props){
     return <ContainerCadastro>
                <h2>Cadastrar Despesa:</h2>
-               <Despesa/>
+               <Despesa despesas={props.listaDeDespesas} />
                <button>Salvar</button>
                <button>Extrato</button>
            </ContainerCadastro>

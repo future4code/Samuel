@@ -4,9 +4,7 @@ import styled from 'styled-components';
 const ContainerDespesa = styled.div`
     display: flex;
     flex-direction: column;
-
 `
-
 export class Despesa extends React.Component {
 
     constructor(props){
@@ -21,17 +19,14 @@ export class Despesa extends React.Component {
     aoMudarValor = (event) => {
         this.setState({valor: event.target.value});
     }
-
     aoMudarTipo = (event) => {
         this.setState({tipo: event.target.value});
     }
-
     aoMudarDescricao = (event) => {
         this.setState({descricao: event.target.value});
     }
     
     render(){
-
         return (
             <ContainerDespesa>
                 <input 
