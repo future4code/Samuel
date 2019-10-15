@@ -11,7 +11,16 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      listaDeUsuarios: [],
+      listaDeUsuarios: [ //preenchida manualmente, por ora, só pra testar o acesso
+        {
+          name: "Samuel",
+          email: "squoliver@gmail.com"
+        },
+        {
+          name: "Fabiana",
+          email: "frodrigues37@hotmail.com"
+        }
+      ],
       mostraUsuarios: false
     }
   }
@@ -27,18 +36,30 @@ class App extends React.Component {
     //criar componentes do tipo 'Usuario' com cada um dos itens do array 'listaDeUsuarios' com o map e mostrar!
   }
 
+  verLista = ()=>{
+    const mostrarListaDeUsuarios = !this.state.mostraUsuarios
+    this.setState({mostraUsuarios : mostrarListaDeUsuarios})
+  }  
+
   render(){
 
+    const listaGeral = this.state.listaDeUsuarios.map((usuario)=>{
+      return <p>Nome: {usuario.name} - E-mail: {usuario.email}</p> //teste se retorna/acessa a lista de usuarios que ira ter
+    });
+
     const tela = this.state.mostraUsuarios? 
-      <div>{this.state.listaUsuarios}</div> :
-      <Formulario listaDeUsuarios={this.state.listaDeUsuarios} cadastrarUsuario={this.cadastrarUsuario}/>
+      <div>{listaGeral}</div> :
+      <Formulario 
+        listaDeUsuarios={this.state.listaDeUsuarios} 
+        cadastrarUsuario={this.cadastrarUsuario}
+      />
 
     return (
-      <div>
-        <button>Usuários Cadastrados</button>
+      <BigContainer>
+        <button onClick={this.verLista}>{this.state.mostraUsuarios?"Cadastrar um novo usuário":"Ver lista de usuários"}</button>
         <hr/>
         {tela}
-      </div>
+      </BigContainer>
     );
   }
 }
