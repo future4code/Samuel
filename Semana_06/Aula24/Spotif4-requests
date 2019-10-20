@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "04ac3882-b288-46ea-8d00-8549e327cdba",
+		"name": "Aula24-Spotif4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Playlist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth",
+						"value": "3cfdfe6d73fbb3b3bd84bba5f16098c9",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Ballads\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/createPlaylist",
+					"protocol": "https",
+					"host": [
+						"us-central1-spotif4",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"api",
+						"playlists",
+						"createPlaylist"
+					]
+				},
+				"description": "Cria uma nova playlist por vez, com o nome informado em \"name\"."
+			},
+			"response": []
+		},
+		{
+			"name": "Add Music to Playlist",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "auth",
+						"value": "3cfdfe6d73fbb3b3bd84bba5f16098c9",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"playlistId\": \"b91727be-04cd-4639-82c6-0bc33403ee26\", \r\n    \"music\": { \r\n        \"name\": \"Will You Still Love Me\",\r\n        \"artist\": \"The Shireless\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/addMusicToPlaylist",
+					"protocol": "https",
+					"host": [
+						"us-central1-spotif4",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"api",
+						"playlists",
+						"addMusicToPlaylist"
+					]
+				},
+				"description": "Acrescenta a música \"name\", do artista \"artist\", na playlist com o id \"playlistsId\"."
+			},
+			"response": []
+		},
+		{
+			"name": "Check Musics on Playlist",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "auth",
+						"value": "3cfdfe6d73fbb3b3bd84bba5f16098c9",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/getPlaylistMusics/4cb1cb25-d41b-40ab-8c38-d2c34d8dc0bd",
+					"protocol": "https",
+					"host": [
+						"us-central1-spotif4",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"api",
+						"playlists",
+						"getPlaylistMusics",
+						"4cb1cb25-d41b-40ab-8c38-d2c34d8dc0bd"
+					]
+				},
+				"description": "Retorna as músicas que estão na playlist indicada (ID passado como parâmetro na URL)."
+			},
+			"response": []
+		},
+		{
+			"name": "See Playlists",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "auth",
+						"value": "3cfdfe6d73fbb3b3bd84bba5f16098c9",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/getAllPlaylists",
+					"protocol": "https",
+					"host": [
+						"us-central1-spotif4",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"api",
+						"playlists",
+						"getAllPlaylists"
+					]
+				},
+				"description": "Verifica todas as playlists criadas, além de retornar o ID de cada uma e o seu respectivo nome."
+			},
+			"response": []
+		},
+		{
+			"name": "Search Playlist by name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "auth",
+						"value": "3cfdfe6d73fbb3b3bd84bba5f16098c9",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/searchPlaylist?playlistName=samuel",
+					"protocol": "https",
+					"host": [
+						"us-central1-spotif4",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"api",
+						"playlists",
+						"searchPlaylist"
+					],
+					"query": [
+						{
+							"key": "playlistName",
+							"value": "samuel"
+						}
+					]
+				},
+				"description": "Retorna as playlists que possuem o termo em \"playlistName\"."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Music from Playlist",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "auth",
+						"value": "3cfdfe6d73fbb3b3bd84bba5f16098c9",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/removeMusicFromPlaylist?playlistId=659b776d-5f3a-4da7-a6b5-119fa90580b1&musicId=37a051a4-bc4f-4e3f-b290-35512721d009",
+					"protocol": "https",
+					"host": [
+						"us-central1-spotif4",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"api",
+						"playlists",
+						"removeMusicFromPlaylist"
+					],
+					"query": [
+						{
+							"key": "playlistId",
+							"value": "659b776d-5f3a-4da7-a6b5-119fa90580b1"
+						},
+						{
+							"key": "musicId",
+							"value": "37a051a4-bc4f-4e3f-b290-35512721d009"
+						}
+					]
+				},
+				"description": "Remove a música \"musicId\" da playlist \"playlistId\"."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Playlist by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "auth",
+						"value": "3cfdfe6d73fbb3b3bd84bba5f16098c9",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-spotif4.cloudfunctions.net/api/playlists/deletePlaylist?playlistId=b91727be-04cd-4639-82c6-0bc33403ee26",
+					"protocol": "https",
+					"host": [
+						"us-central1-spotif4",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"api",
+						"playlists",
+						"deletePlaylist"
+					],
+					"query": [
+						{
+							"key": "playlistId",
+							"value": "b91727be-04cd-4639-82c6-0bc33403ee26"
+						}
+					]
+				},
+				"description": "Deleta a playlist \"playlistId\"."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
