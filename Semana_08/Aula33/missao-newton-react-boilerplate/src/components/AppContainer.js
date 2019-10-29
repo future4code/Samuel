@@ -3,19 +3,13 @@ import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-//import Typography from '@material-ui/core/Typography';
 import CheckIcon from '@material-ui/icons/Check';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Radio from '@material-ui/core/Radio';
-
-
-
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 const BigWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: 30%;
+	width: 600px;
 	margin: 20px auto;
 `
 
@@ -36,26 +30,51 @@ const Tasks = styled.div`
 	margin: 10px auto;
 `
 
+const RadioButtons = styled.div`
+	display: flex;
+`
+
 const StyledP = styled.p`
 	margin: 0;
 	padding: 0;
 `
 
-const StyledRadioGroup = styled.div`
+const StyledH1 = styled.h1`
+	margin: 0;
+`
+
+const ButtonWrapper = styled.div`
 	display: flex;
-	justify-content: space-between;
+	margin: 15px;
+`
+
+const StyledButton = styled(Button)`
+	margin: 0 5px;
 `
 
 export class AppContainer extends React.Component {
 	constructor(props) {
 		super(props)
 	}
-
+	
 	render() {
 		return (
 			<BigWrapper>
 				<StyledPaper>
-					<h1>{`Do's & Done's`}</h1>
+					<StyledH1>{`Do's & Done's`}</StyledH1>
+
+					<ButtonWrapper>
+						<StyledButton variant="outlined" color="primary" size="small">
+							<StyledP>Ver todas</StyledP>
+						</StyledButton>
+						<StyledButton variant="outlined" color="primary" size="small">
+							<StyledP>Ver completas</StyledP>
+						</StyledButton>
+						<StyledButton variant="outlined" color="primary" size="small">
+							<StyledP>Ver incompletas</StyledP>
+						</StyledButton>
+					</ButtonWrapper>
+
 					<StyledTextField
 						label="Digite a task"
 						variant="outlined"
@@ -63,26 +82,16 @@ export class AppContainer extends React.Component {
 					<Tasks>
 					</Tasks>
 
-					<StyledRadioGroup>
-						<Radio
-							value="a"
-							aria-label="A"
-						/>
-						<Radio
-							value="b"
-							aria-label="B"
-						/>
-						<Radio
-							value="c"
-							aria-label="C"
-						/>
-					</StyledRadioGroup>
-					
-
-					<Button variant="contained" color="primary" size="small">
-						<StyledP>Marcar todas como completas</StyledP>
-						<CheckIcon/>
-					</Button>
+					<ButtonWrapper>
+						<StyledButton variant="contained" color="primary">
+							<StyledP>Completar todas</StyledP>
+							<CheckIcon fontSize="small" />
+						</StyledButton>
+						<StyledButton variant="contained" color="primary">
+							<StyledP>Remover completas</StyledP>
+							<DeleteForeverIcon fontSize="small" />
+						</StyledButton>
+					</ButtonWrapper>
 				</StyledPaper>
 			</BigWrapper>
 		)
