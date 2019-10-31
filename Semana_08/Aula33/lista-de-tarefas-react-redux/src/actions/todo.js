@@ -10,7 +10,7 @@ export function adicionarTask(descricao, idTask, taskFeita){
 		type: adicionarTask,
 		payload: {
 			descricao: descricao,
-			idTask: idTask, 
+			idTask: idTask,
 			taskFeita: false
 		}
 	}
