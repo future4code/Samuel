@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 import { routes } from '../Router';
 import styled from "styled-components";
-import HomeIcon from '@material-ui/icons/Home';
+import ReplyIcon from '@material-ui/icons/Reply';
 
 const WrapperControlPanel = styled.div`
   display: flex;
@@ -38,13 +38,13 @@ class Inscricao extends React.Component {
         <WrapperControlPanel>
               <AppHeader>
                 <Button onClick={this.props.goHome}>
-                  <HomeIcon/>
+                  <ReplyIcon/>
                 </Button>
                 <h2>Oi, estou na página de inscrição!</h2>
               </AppHeader>
               <SubForm>
                 AQUI VAI O FORMULÁRIO DE INSCRIÇÃO NUMA VIAGEM SELECIONADA!
-              </SubForm>              
+              </SubForm>
           </WrapperControlPanel>
       )
     }

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { push, goBack } from 'connected-react-router';
 import { routes } from '../Router';
 import ReplyIcon from '@material-ui/icons/Reply';
+import TextField from '@material-ui/core/TextField';
 
 const WrapperControlPanel = styled.div`
   display: flex;
@@ -22,11 +23,11 @@ const AppHeader = styled.div`
 const CreateTripForm = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   background-color: lightpink;
   flex-grow: 1;
-`
+  `
 
 class CreateJourney extends React.Component {
     constructor(props) {
@@ -43,7 +44,11 @@ class CreateJourney extends React.Component {
                 <h2>Oi, estou na tela de criação de viagens!</h2>
               </AppHeader>
               <CreateTripForm>
-                AQUI VAI O FORMULÁRIO DE CRIAÇÃO DE UMA NOVA VIAGEM!
+                <TextField label="Nome da viagem" />
+                <TextField label="Descrição" />
+                <TextField label="Duração" />
+                <TextField label="Data" />
+                <TextField label="Planeta" />
               </CreateTripForm>
           </WrapperControlPanel>
          
