@@ -7,6 +7,7 @@ import Register from "../Register/Register";
 import ControlPanel from "../ControlPanel/ControlPanel";
 import CreateJourney from "../ControlPanel/CreateJourney";
 import Subscriptions from "../ControlPanel/Subscriptions";
+import TripFullDetails from "../ControlPanel/TripFullDetails";
 
 export const routes = {
   root: "/",
@@ -14,7 +15,8 @@ export const routes = {
   register: "/register",
   controlPanel: "/controlPanel",
   createTrip: "/createJourney",
-  subscriptions: "/subs"
+  subscriptions: "/subs",
+  tripFullDetails: "/fullDetails"
   
 };
 
@@ -28,6 +30,7 @@ function Router(props) {
         <Route path={routes.controlPanel} component={ControlPanel} />
         <Route path={routes.createTrip} component={CreateJourney} />
         <Route path={routes.subscriptions} component={Subscriptions} />
+        <Route path={routes.tripFullDetails} component={TripFullDetails} />
       </Switch>
     </ConnectedRouter>
   );

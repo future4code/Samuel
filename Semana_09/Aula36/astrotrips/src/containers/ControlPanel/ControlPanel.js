@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 import { routes } from '../Router';
 import HomeIcon from '@material-ui/icons/Home';
+import { getTrips } from '../../actions/trips';
 
 const WrapperControlPanel = styled.div`
   display: flex;
@@ -42,9 +43,14 @@ const MostraViagens = styled.div`
 class ControlPanel extends React.Component {
     constructor(props) {
       super(props);
-    }    
+    }
+    
+    componentDidMount(){
+      this.props.getTrips();
+    }
   
     render() {
+      console.log("Trip List", this.props.tripList)
       return (
           <WrapperControlPanel>
               <AppHeader>
@@ -59,7 +65,10 @@ class ControlPanel extends React.Component {
                   <Button variant="contained" color="primary" onClick={this.props.goToSubscriptions}>VER INSCRIÇÕES</Button>
                 </AdmMenu>
                 <MostraViagens>
-                  <h4>TRIP LIST PLACEHOLDER {`(onde as viagens irão aparecer)`}</h4>
+                  <h4>TRIP LIST PLACEHOLDER {`(onde todas as viagens irão aparecer - apenas os nomes!!!)`}</h4>
+                  <div>
+                    <button onClick={this.props.seeFullDetails}>UMA VIAGEM QUALQUER</button>
+                  </div>
                 </MostraViagens>
               </ControlPanelMain>
           </WrapperControlPanel>
@@ -68,12 +77,20 @@ class ControlPanel extends React.Component {
     }
   }
 
+  const mapStateToProps = (state) => {
+    return {
+      tripList: state.trips.tripList
+    }
+  }
+
   const mapDispatchToProps = (dispatch) => {
       return {
           goHome: () => dispatch(push(routes.root)),
           goToCreateTrip: () => dispatch(push(routes.createTrip)),
-          goToSubscriptions: () => dispatch(push(routes.subscriptions))
+          goToSubscriptions: () => dispatch(push(routes.subscriptions)),
+          seeFullDetails: () => dispatch(push(routes.tripFullDetails)),
+          getTrips: () => dispatch(getTrips())
       }
   }
   
-  export default connect(null, mapDispatchToProps)(ControlPanel);
+  export default connect(mapStateToProps, mapDispatchToProps)(ControlPanel);
