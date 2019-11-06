@@ -57,7 +57,7 @@ class ControlPanel extends React.Component {
                 <Button onClick={this.props.goHome}>
                   <HomeIcon/>
                 </Button>
-                <h2>Oi, estou no painel de controle!</h2>
+                <h2>| PAINEL DE CONTROLE</h2>
               </AppHeader>
               <ControlPanelMain>
                 <AdmMenu>
