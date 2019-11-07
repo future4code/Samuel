@@ -50,7 +50,7 @@ class ControlPanel extends React.Component {
     }
   
     render() {
-      console.log("Trip List", this.props.tripList)
+      //console.log("Trip List", this.props.tripList)
       return (
           <WrapperControlPanel>
               <AppHeader>
@@ -62,7 +62,7 @@ class ControlPanel extends React.Component {
               <ControlPanelMain>
                 <AdmMenu>
                   <Button variant="contained" color="primary" onClick={this.props.goToCreateTrip}>CRIAR NOVA VIAGEM</Button>
-                  <Button variant="contained" color="primary" onClick={this.props.goToSubscriptions}>VER INSCRIÇÕES</Button>
+                  {/* <Button variant="contained" color="primary" onClick={this.props.goToSubscriptions}>VER INSCRIÇÕES</Button> */}
                 </AdmMenu>
                 <MostraViagens>
                   <h4>TRIP LIST PLACEHOLDER {`(onde todas as viagens irão aparecer - apenas os nomes!!!)`}</h4>
@@ -87,7 +87,7 @@ class ControlPanel extends React.Component {
       return {
           goHome: () => dispatch(push(routes.root)),
           goToCreateTrip: () => dispatch(push(routes.createTrip)),
-          goToSubscriptions: () => dispatch(push(routes.subscriptions)),
+          // goToSubscriptions: () => dispatch(push(routes.subscriptions)),
           seeFullDetails: () => dispatch(push(routes.tripFullDetails)),
           getTrips: () => dispatch(getTrips())
       }

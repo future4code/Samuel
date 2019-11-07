@@ -7,9 +7,8 @@ import { routes } from '../Router';
 import ReplyIcon from '@material-ui/icons/Reply';
 import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
-import MenuItem from "@material-ui/core/MenuItem";
-import OutlinedInput from "@material-ui/core/OutlinedInput";
 import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
 
 const WrapperControlPanel = styled.div`
   display: flex;
@@ -35,7 +34,7 @@ const StyledForm = styled.form`
 const StyledFormControl = styled(FormControl)`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;  
   flex-grow: 1;
   `
@@ -58,12 +57,27 @@ class CreateJourney extends React.Component {
     });
   }
 
+  handleSelectChange = (event) => {
+    console.log("conteudo de event:", event.target.value)
+    this.setState({planet: event.target.value})
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
     alert("Viagem criada com sucesso!");
+    this.cleanFields();
+  }
+
+  cleanFields = () => {
+    //limpar os campos do formulário, caso a viagem tenha sido criada com sucesso
   }
 
   render() {
+    
+    let tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const minDate = new Date(tomorrow).toISOString().substr(0, 10);
+
     return (
       <WrapperControlPanel>
         <AppHeader>
@@ -78,20 +92,25 @@ class CreateJourney extends React.Component {
             <TextField fullWidth required name="name" inputProps={{ pattern: "^[a-zA-Z]{5,}" }} label="Nome da viagem (mín. 5 caracteres)" />
             <TextField fullWidth required name="desc" inputProps={{ pattern: "^[a-zA-Z]{30,}" }} label="Descrição (mín. 30 caracteres)" />
             <TextField fullWidth required name="duration" type="number" inputProps={{ min: "50" }} label="Duração (mín. 50 dias)" />
-            <TextField fullWidth required name="date" type="date" label="Data" InputLabelProps={{ shrink: true }} />
+            <TextField fullWidth required name="date" type="date" label="Data" inputProps={{min: minDate}} InputLabelProps={{ shrink: true }} />
           </StyledFormControl>
           <StyledFormControl>
-            <InputLabel htmlFor="planeta">Escolha um planeta</InputLabel>
-            <Select fullWidth inputProps={{name: 'planeta', id: 'planeta'}} value={this.state.planet} onChange={this.handleFieldChange}>
-              <MenuItem value="jupiter">Júpiter</MenuItem>
-              <MenuItem value="marte">Marte</MenuItem>
-              <MenuItem value="mercurio">Mercúrio</MenuItem>
-              <MenuItem value="netuno">Netuno</MenuItem>
-              <MenuItem value="saturno">Saturno</MenuItem>
-              <MenuItem value="terra">Terra</MenuItem>
-              <MenuItem value="urano">Urano</MenuItem>
-              <MenuItem value="venus">Vênus</MenuItem>
-            </Select>
+              <InputLabel htmlFor="planet">Escolha um planeta</InputLabel>
+              <Select 
+                fullWidth 
+                inputProps={{name: 'planet', id: 'planet'}} 
+                value={this.state.planet} 
+                onChange={this.handleFieldChange}
+              >
+                <MenuItem value="jupiter">Júpiter</MenuItem>
+                <MenuItem value="marte">Marte</MenuItem>
+                <MenuItem value="mercurio">Mercúrio</MenuItem>
+                <MenuItem value="netuno">Netuno</MenuItem>
+                <MenuItem value="saturno">Saturno</MenuItem>
+                <MenuItem value="terra">Terra</MenuItem>
+                <MenuItem value="urano">Urano</MenuItem>
+                <MenuItem value="venus">Vênus</MenuItem>
+              </Select>
             <Button color="primary" variant="contained" type="submit">CRIAR NOVA VIAGEM</Button>
           </StyledFormControl>
         </StyledForm>
