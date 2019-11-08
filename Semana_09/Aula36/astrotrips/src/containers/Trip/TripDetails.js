@@ -24,6 +24,7 @@ const FullDetaisCanvas = styled.div`
   background-color: beige;
   border: 1px solid black;
   flex-grow: 1;
+  padding: 5%;
 `
 
 class TripDetails extends React.Component {  
@@ -39,7 +40,7 @@ class TripDetails extends React.Component {
                     <h2>| PAINEL DE CONTROLE</h2>
                 </AppHeader>
                 <FullDetaisCanvas>
-                    teste
+                    {`acrescenter informações detalhadas da viagem selecionada aqui`}
                 </FullDetaisCanvas>
             </WrapperControlPanel>
         )
@@ -48,7 +49,7 @@ class TripDetails extends React.Component {
 
   const mapStateToProps = (state) => {
     return {
-      tripList: state.trips.tripList
+        
     }
   }
 

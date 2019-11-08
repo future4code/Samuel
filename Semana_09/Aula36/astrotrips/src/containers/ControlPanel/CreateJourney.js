@@ -84,7 +84,7 @@ class CreateJourney extends React.Component {
           <Button onClick={this.props.goBackToControlPanel}>
             <ReplyIcon />
           </Button>
-          <h2>| PAINEL DE CONTROLE >> CRIAR VIAGEM</h2>
+          <h2>| PAINEL DE CONTROLE 🡢 CRIAR VIAGEM</h2>
         </AppHeader>
         
         <StyledForm onSubmit={this.handleSubmit}>
