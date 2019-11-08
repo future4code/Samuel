@@ -6,6 +6,7 @@ import { push } from 'connected-react-router';
 import { routes } from '../Router';
 import HomeIcon from '@material-ui/icons/Home';
 import { getTrips } from '../../actions/trips';
+import TripsList from '../Trip/TripsList';
 
 const WrapperControlPanel = styled.div`
   display: flex;
@@ -34,10 +35,10 @@ const AdmMenu = styled.div`
   background-color: bisque;
 `
 
-const MostraViagens = styled.div`
+const TripsWrapper = styled.div`
   background-color: beige;
   width: 80%;
-  border: 1px solid black;
+  flex-grow: 1;
 `
 
 class ControlPanel extends React.Component {
@@ -49,38 +50,28 @@ class ControlPanel extends React.Component {
       this.props.getTrips();
     }
   
-    render() {
-      //console.log("Trip List", this.props.tripList)
-      return (
-          <WrapperControlPanel>
-              <AppHeader>
-                <Button onClick={this.props.goHome}>
-                  <HomeIcon/>
-                </Button>
-                <h2>| PAINEL DE CONTROLE</h2>
-              </AppHeader>
-              <ControlPanelMain>
-                <AdmMenu>
-                  <Button variant="contained" color="primary" onClick={this.props.goToCreateTrip}>CRIAR NOVA VIAGEM</Button>
-                  {/* <Button variant="contained" color="primary" onClick={this.props.goToSubscriptions}>VER INSCRIÇÕES</Button> */}
-                </AdmMenu>
-                <MostraViagens>
-                  <h4>TRIP LIST PLACEHOLDER {`(onde todas as viagens irão aparecer - apenas os nomes!!!)`}</h4>
-                  <div>
-                    <button onClick={this.props.seeFullDetails}>UMA VIAGEM QUALQUER</button>
-                  </div>
-                </MostraViagens>
-              </ControlPanelMain>
-          </WrapperControlPanel>
-         
-      )
-    }
-  }
+  render() {
 
-  const mapStateToProps = (state) => {
-    return {
-      tripList: state.trips.tripList
-    }
+    return (
+      <WrapperControlPanel>
+        <AppHeader>
+          <Button onClick={this.props.goHome}>
+            <HomeIcon />
+          </Button>
+          <h2>| PAINEL DE CONTROLE</h2>
+        </AppHeader>
+        <ControlPanelMain>
+          <AdmMenu>
+            <Button variant="contained" color="primary" onClick={this.props.goToCreateTrip}>CRIAR NOVA VIAGEM</Button>
+            {/* <Button variant="contained" color="primary" onClick={this.props.goToSubscriptions}>VER INSCRIÇÕES</Button> */}
+          </AdmMenu>
+          <TripsWrapper>
+              <TripsList />
+          </TripsWrapper>
+        </ControlPanelMain>
+      </WrapperControlPanel>
+    )
+  }
   }
 
   const mapDispatchToProps = (dispatch) => {
@@ -88,9 +79,9 @@ class ControlPanel extends React.Component {
           goHome: () => dispatch(push(routes.root)),
           goToCreateTrip: () => dispatch(push(routes.createTrip)),
           // goToSubscriptions: () => dispatch(push(routes.subscriptions)),
-          seeFullDetails: () => dispatch(push(routes.tripFullDetails)),
+          seeFullDetails: () => dispatch(push(routes.tripDetails)),
           getTrips: () => dispatch(getTrips())
       }
   }
   
-  export default connect(mapStateToProps, mapDispatchToProps)(ControlPanel);
+  export default connect(null, mapDispatchToProps)(ControlPanel);
