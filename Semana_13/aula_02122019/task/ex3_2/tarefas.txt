@@ -1,0 +1,3 @@
+* Lavar o quintal
+* Perguntar e tirar dúvidas sobre os parâmetros passados ao usar o npm start
+* Confirmar se podemos usar lib externas pra manipular cores do console
