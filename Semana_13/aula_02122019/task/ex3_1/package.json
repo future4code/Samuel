@@ -1,0 +1,15 @@
+{
+  "name": "ex3_1",
+  "version": "0.0.1",
+  "description": "Exercício 1 feito anteriormente, mas agora em formato de projeto NPM",
+  "main": "ex3_1.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node ex3_1.js"
+  },
+  "keywords": [
+    "calculator"
+  ],
+  "author": "Samuel Quaresma",
+  "license": "ISC"
+}
