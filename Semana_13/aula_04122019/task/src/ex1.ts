@@ -1,14 +1,23 @@
 import { readdir, readFile } from 'fs';
 
-
-
-readdir("textos", function(err, files:string[]) {
+readdir("textos", (err: any, fileNames: string[]) => {
     if(err) {
-        console.log("Error getting directory information.")
-    } else {
-        files.forEach(function(file:string) {
-            readFile()
-            console.log(file)
-        })
+        console.log("Erro ao tentar acessar o diretório.");
+        return;
     }
+    const allPromises = fileNames.map((fileName) => {
+        return new Promise((resolve, reject)=>{
+            readFile(`textos/${fileName}`, (err: any, data: Buffer) => {
+                if(err){
+                    reject(err);
+                    return;
+                }
+                resolve(data.toString());
+            })
+        })
+    })
+
+    Promise.all(allPromises).then((allValues: string[])=>{
+        console.log(allValues.join(""));
+    })
 })
