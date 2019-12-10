@@ -1,11 +1,18 @@
+import * as fs from 'fs';
+
 export class JSONFileManager {
+
     private fileName: string;
-
-    public getObjectFromFile(){
-
+    
+    constructor(fileName: string){
+        this.fileName = fileName;
     }
 
-    public writeObjectToFile(){
-        
+    writeObjetcToFile(objectToSave: object){
+        fs.writeFileSync(this.fileName, JSON.stringify(objectToSave, null, 4));
+    }
+
+    getObjectFromFile() {
+        return JSON.parse(fs.readFileSync(this.fileName).toString());
     }
 }

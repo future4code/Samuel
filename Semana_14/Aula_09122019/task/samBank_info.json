@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Samuel",
+        "cpf": "32278049801",
+        "age": 36,
+        "balance": 0,
+        "transactions": []
+    },
+    {
+        "name": "Fabiana",
+        "cpf": "30745477828",
+        "age": 35,
+        "balance": 0,
+        "transactions": []
+    },
+    {
+        "name": "Ubirajara",
+        "cpf": "79957510878",
+        "age": 64,
+        "balance": 0,
+        "transactions": []
+    }
+]
