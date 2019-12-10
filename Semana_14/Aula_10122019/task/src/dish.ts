@@ -1,4 +1,5 @@
 export abstract class Dish {
+	
 	protected dishName: string;
 	protected price: number;
 	protected cost: number;

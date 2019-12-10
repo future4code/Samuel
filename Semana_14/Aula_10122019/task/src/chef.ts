@@ -2,7 +2,7 @@ import { Employee } from "./employee";
 import { Dish } from "./dish";
 import { Menu } from "./menu";
 
-export class Chef extends Employee {
+export class Chef extends Employee {    
     
     protected job: string = "Chef";
     protected menu: Menu = new Menu();

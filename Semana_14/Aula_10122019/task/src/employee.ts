@@ -11,6 +11,7 @@ export abstract class Employee {
     }
 
     public abstract sayJob(): void
+    
     public sayMyName(): void {
         console.log(`Oi, meu nome é ${this.name}`);
     }
