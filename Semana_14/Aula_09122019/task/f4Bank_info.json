@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Future",
+        "cpf": "12345678910",
+        "age": 25,
+        "balance": 0,
+        "transactions": []
+    },
+    {
+        "name": "Soter",
+        "cpf": "109876543210",
+        "age": 18,
+        "balance": 0,
+        "transactions": []
+    },
+    {
+        "name": "Darvas",
+        "cpf": "101010101010",
+        "age": 24,
+        "balance": 0,
+        "transactions": []
+    }
+]
