@@ -12,4 +12,5 @@ export class Residence extends Place {
     this.resName = resName;
     this.cpf = cpf;
   }
+  
 }

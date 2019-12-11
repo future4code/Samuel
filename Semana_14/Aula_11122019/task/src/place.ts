@@ -4,6 +4,5 @@ export abstract class Place {
 
   constructor(cep: string) {
     this.cep = cep;
-  }
-  
+  }  
 }
