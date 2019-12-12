@@ -1,6 +1,8 @@
-export class ErrorPrinter {
+import { ErrorTracker } from "./errorTracker";
 
-    public onError(errorMessage: string): void{
-        console.log(errorMessage);
-    }    
+export class ErrorPrinter implements ErrorTracker {
+
+    public onError(errorMessage: string, data: string): void{
+        console.log(`${errorMessage} - ${data}`);
+    }
 }
