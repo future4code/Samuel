@@ -1,0 +1,7 @@
+-> A classe abstrata "Place" é superclasse das classes "Residence", "Trade"
+e "Industry"; como ela não tem nenhum método além do construtor, as classes
+filhas só precisam implementar esse construtor através da chamada "super(cep)".
+
+-> A interface "Client" possui os atributos clientName, clientNumber e
+consumedEnergy, além do método "calculateBill()", que deve ser implementado 
+nas classes que a implementarem.
