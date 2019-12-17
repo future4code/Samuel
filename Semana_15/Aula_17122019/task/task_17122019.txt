@@ -1,0 +1,90 @@
+-- Aula 17/12/2019 - TASK
+USE exercicios;
+
+-- PARTE 1 - RESTAURANTE
+-- ex 1:
+SELECT nome, salario FROM funcionarios
+ORDER BY salario DESC
+LIMIT 5;
+
+-- ex 2:
+SELECT TRUNCATE(AVG(salario),2) AS "Média salarial", local_de_trabalho FROM funcionarios
+GROUP BY local_de_trabalho
+ORDER BY local_de_trabalho;
+
+-- ex 3:
+SELECT COUNT(*) AS "Quantidade", local_de_trabalho, genero FROM funcionarios
+GROUP BY genero, local_de_trabalho
+ORDER BY local_de_trabalho, genero;
+
+-- ex 4:
+SELECT nome, data_contratacao FROM funcionarios
+ORDER BY data_contratacao
+LIMIT 10;
+
+-- PARTE 2 - BANCO
+-- ex 1:
+SELECT CONCAT_WS(" ", primeiro_nome, ultimo_nome) AS "Nome completo", conta_corrente FROM correntistas
+WHERE conta_corrente > 3000 AND pais = "Brazil"
+ORDER BY conta_corrente
+LIMIT 100;
+
+-- ex 2:
+SELECT COUNT(*) AS "Total de mulheres acima de 32 anos:" FROM correntistas
+WHERE genero = "F" AND (YEAR(CURDATE()) - YEAR(aniversario)) > 32;
+
+-- ex 3:
+SELECT TRUNCATE(SUM(conta_corrente),2) AS "Total em CC", pais FROM correntistas
+WHERE pais = "Peru" AND (YEAR(CURDATE()) - YEAR(aniversario)) > 25;
+
+-- ex 4:
+SELECT COUNT(*) AS "Quantidade", pais, genero FROM correntistas
+GROUP BY genero, pais
+ORDER BY pais, genero;
+
+-- ex 5:
+SELECT COUNT(*) AS "Quantidade", aniversario FROM correntistas
+GROUP BY aniversario
+ORDER BY Quantidade DESC;
+
+-- ex 6:
+SELECT TRUNCATE(AVG(YEAR(CURDATE()) - YEAR(aniversario)),2) AS "Média", pais FROM correntistas
+GROUP BY pais
+ORDER BY pais;
+
+-- ex 7:
+SELECT primeiro_nome FROM correntistas
+WHERE MONTH(aniversario) = MONTH(CURDATE())
+ORDER BY primeiro_nome;
+
+-- ex 8:
+SELECT TRUNCATE(AVG(conta_corrente),2) AS "Média", LOWER(pais) FROM correntistas
+GROUP BY pais;
+
+-- ex 9:
+SELECT COUNT(*) AS "Quantidade", primeiro_nome FROM correntistas
+GROUP BY primeiro_nome
+ORDER BY Quantidade DESC
+LIMIT 3;
+
+
+-- EXS DE ESCRITA
+USE samuel;
+DESCRIBE correntistas;
+
+-- ex 1:
+ALTER TABLE correntistas
+ADD estado_civil varchar(30) NOT NULL DEFAULT "Solteiro(a)";
+
+-- ex 2:
+UPDATE correntistas
+SET estado_civil = "Casado(a)"
+WHERE (YEAR(CURDATE()) - YEAR(aniversario)) >= 30;
+
+-- ex 3:
+ALTER TABLE correntistas
+ADD numero_da_sorte int NOT NULL DEFAULT 0;
+
+-- ex 4:
+UPDATE correntistas
+SET numero_da_sorte = FLOOR(RAND()*(1000-1+1)+1);
