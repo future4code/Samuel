@@ -1,0 +1,120 @@
+-- Task - 18/12/2019
+-- EX 1:
+USE samuel;
+
+CREATE TABLE autores (
+	id INT,
+	primeiro_nome VARCHAR(50) NOT NULL,
+	ultimo_nome VARCHAR(50) NOT NULL,	
+	PRIMARY KEY(id)
+);
+
+DESCRIBE autores;
+
+-- A coluna "nacionalidade" dos autores nem era usada posteriormente:
+ALTER TABLE autores
+DROP COLUMN nacionalidade;
+
+CREATE TABLE editoras (
+	id INT,
+	nome VARCHAR(50) NOT NULL,
+	cidade VARCHAR(50) NOT NULL,
+	fundacao DATE NOT NULL,
+	PRIMARY KEY(id)
+);
+
+DESCRIBE editoras;
+
+CREATE TABLE usuarios (
+	id INT,
+	primeiro_nome VARCHAR(50) NOT NULL,
+	ultimo_nome VARCHAR(50) NOT NULL,
+	nacionalidade VARCHAR(50) NOT NULL,
+	data_de_nascimento DATE NOT NULL,
+	PRIMARY KEY(id)
+);
+
+DESCRIBE usuarios;
+
+CREATE TABLE livros (
+	id INT,
+	titulo VARCHAR(200) NOT NULL,
+	autor_id INT,
+	editora_id INT,
+	ano DATE NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(autor_id) REFERENCES autores(id),
+	FOREIGN KEY(editora_id) REFERENCES editoras(id)
+);
+
+DESCRIBE livros;
+
+CREATE TABLE usuarios_livros (
+	usuario_id INT,
+	livro_id INT,
+	PRIMARY KEY(usuario_id, livro_id),
+	FOREIGN KEY(usuario_id) REFERENCES usuarios(id),
+	FOREIGN KEY(livro_id) REFERENCES livros(id)
+);
+
+DESCRIBE usuarios_livros;
+
+-- EX 2:
+-- inserção das editoras - OK
+SELECT * FROM editoras;
+
+-- inserção dos autores no banco - OK
+SELECT * FROM autores;
+
+-- inserção dos livros - OK
+SELECT * FROM livros;
+
+-- inserção dos usuários - OK
+SELECT * FROM usuarios;
+
+-- inserção dos livros alugados (usuarios_livros) - OK
+SELECT * FROM usuarios_livros;
+
+-- EX 3:
+-- 1)
+SELECT titulo AS "Titulo", CONCAT(primeiro_nome," ", ultimo_nome) AS "Autor(a)"
+FROM livros l
+JOIN autores a ON l.autor_id = a.id
+WHERE CONCAT(a.primeiro_nome," ", a.ultimo_nome) = "J. K. Rowling"
+ORDER BY Titulo;
+
+-- 2)
+SELECT titulo AS "Titulo", CONCAT(primeiro_nome," ", ultimo_nome) AS "Autor(a)"
+FROM livros l
+JOIN autores a ON l.autor_id = a.id
+WHERE a.primeiro_nome LIKE "A%";
+
+-- 3)
+SELECT primeiro_nome AS "Autor(a)", COUNT(*) AS "Quantidade"
+FROM livros l
+JOIN autores a ON l.autor_id = a.id
+GROUP BY a.primeiro_nome
+ORDER BY Quantidade DESC;
+
+-- 4) TO-DO!!! não rolou... AINDA!
+SELECT *
+FROM livros l
+JOIN usuarios_livros ul ON l.id = ul.livro_id
+JOIN usuarios u ON ul.usuario_id = u.id
+ORDER BY l.titulo;
+
+-- 5)
+SELECT u.primeiro_nome AS "Nome do usuario", COUNT(l.id) AS quantidade_livros_alugados
+FROM usuarios u
+JOIN usuarios_livros ul ON u.id = ul.usuario_id
+JOIN livros l ON l.id = ul.livro_id
+GROUP BY u.primeiro_nome
+ORDER BY quantidade_livros_alugados DESC;
+
+-- 6)
+SELECT l.titulo AS "Titulo do livro", e.nome AS "Editora", e.fundacao AS "data_fundacao"
+FROM livros l
+JOIN editoras e ON e.id = l.editora_id
+WHERE YEAR(e.fundacao) < 1990;
+
+-- 7)
