@@ -1,0 +1,97 @@
+-- definindo em qual banco está sendo feito os exercícios:
+USE exercicios;
+
+-- item a:
+SELECT nome, salario FROM funcionarios
+WHERE (genero = "F" AND salario > 2000);
+
+-- item b:
+SELECT nome, data_contratacao FROM funcionarios
+WHERE local_de_trabalho = "salao" AND data_contratacao > '2004-01-01';
+
+-- item c:
+SELECT nome, data_nascimento FROM funcionarios
+WHERE nome LIKE "%ei%";
+
+-- item d:
+SELECT nome, salario, data_nascimento FROM funcionarios
+WHERE (YEAR(CURDATE()) - YEAR(data_nascimento)) > 21 AND salario > 1300;
+
+DESCRIBE exercicios;
+
+
+
+-- determinando o BD atual para 'samuel': 
+-- obs: não funcionou e tive que usar o 'set active'.
+USE samuel;
+
+-- recriando a tabela 'funcionarios':
+CREATE TABLE funcionarios (
+	id int PRIMARY KEY AUTO_INCREMENT,
+	nome varchar(100) NOT NULL,
+	salario double NOT NULL,
+	local_de_trabalho varchar(100) NOT NULL,
+	data_contratacao DATE NOT NULL DEFAULT '2019-12-16',
+	genero varchar(1) NOT NULL,
+	data_nascimento DATE NOT NULL DEFAULT '2019-12-16'
+);
+
+-- pegando as informações estruturais da tabela 'funcionarios':
+DESCRIBE funcionarios;
+
+-- inserindo registros na tabela:
+INSERT INTO funcionarios (nome, salario, local_de_trabalho, data_contratacao, genero, data_nascimento)
+VALUES ("Samuel", 10000, "Desenvolvimento", "2020-03-18", "M", "1983-03-18"),
+		("Fabiana", 12000, "Financeiro", "2020-06-12", "F", "1984-03-06");
+
+
+
+-- usando o BD 'exercicios':
+-- não está funcionando, então usei o 'set active' do DBeaver.
+USE exercicios;
+
+-- item a:
+SELECT primeiro_nome, email FROM correntistas
+WHERE conta_corrente < 0;
+
+-- item b:
+SELECT primeiro_nome, genero FROM correntistas
+WHERE pais = "Peru" OR YEAR(aniversario) < "1990";
+
+-- item c:
+SELECT ultimo_nome FROM correntistas
+WHERE primeiro_nome LIKE "A%";
+
+-- idem d:
+SELECT primeiro_nome, aniversario FROM correntistas
+WHERE YEAR(aniversario) > "2000" AND conta_corrente > 1000;
+
+DESCRIBE correntistas;
+
+
+-- determinando o BD atual para 'samuel': 
+-- obs: não funcionou e tive que usar o 'set active'.
+USE samuel;
+
+-- recriando a tabela 'correntistas':
+CREATE TABLE correntistas (
+	id int PRIMARY KEY AUTO_INCREMENT,
+	primeiro_nome varchar(50),
+	ultimo_nome varchar(50),
+	email varchar(50),
+	genero varchar(50),
+	conta_corrente double NOT NULL,
+	pais varchar(50),
+	aniversario DATE
+);
+
+-- pegando as informações estruturais da tabela 'funcionarios':
+DESCRIBE correntistas;
+
+-- inserindo registros na tabela:
+INSERT INTO correntistas (primeiro_nome, ultimo_nome, email, genero, conta_corrente, pais, aniversario)
+VALUES ("Samuel", "Oliveira", "squoliver@gmail.com", "M", 10000, "Brasil", "1983-03-18"),
+		("Fabiana", "Sousa", "fabiana@gmail.com", "F", 12500, "Canada", "1984-03-06"),
+		("Saulo", "Oliveira", "saulo@hotmail.com", "M", 15000, "Brasil", "1986-10-22"),
+		("Vera", "Quaresma", "vera.lucia@gmail.com", "F", -600, "Brasil", "1953-10-21"),
+		("Ubirajara", "Chaves", "bira@globo.com", "M", 2500, "Brasil", "1955-08-04");
