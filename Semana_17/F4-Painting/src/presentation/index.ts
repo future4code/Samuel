@@ -4,6 +4,9 @@ import { CreateOrderUseCase, CreateOrderInput } from '../business/usecases/creat
 import { OrderDatabase } from '../data/orderDatabase'
 import { V4IdGenerator } from '../services/V4IdGenerator'
 import { GetAllOrdersUseCase } from '../business/usecases/getAllOrders/getAllOrdersUseCase'
+import { UserDatabase } from '../data/userDatabase'
+import { CreateUserUseCase, CreateUserUCInput } from '../business/usecases/createUser/createUserUseCase'
+import { BcryptService } from '../services/bcryptService'
 
 const app = express()
 app.use(express.json()) // Linha mágica (middleware)
@@ -20,7 +23,6 @@ app.post("/pedido/simular", (req: Request, res: Response) => {
             type: req.body.frameType,
             borderSize: req.body.borderSize,
         }
-
     }
 
     const result = useCase.execute(input);
@@ -47,9 +49,8 @@ app.post("/pedido/criarPedido", async (req: Request, res: Response) => {
             borderSize: req.body.borderSize
         },
         user: {
-            name: req.body.username,
-            email: req.body.email 
-        }    
+            userId: req.body.userId
+        }
     }
 
     try {
@@ -72,14 +73,33 @@ app.get("/pedidos/verTodosOsPedidos", async(req: Request, res: Response) => {
     try {
         const result = await useCase.execute();
         res.send({ result });
-        //     printSize: formatValueAsString(result.printPrice),
-        //     framePrice: formatValueAsString(result.framePrice),
-        //     totalPrice: formatValueAsString(result.totalPrice)
-        // })
     } catch (e) {
         console.log(e.message);
     }
 })
+
+app.post("/usuarios/criarUsuario", async (req: Request, res: Response) => {
+    const userGateway = new UserDatabase();
+    const encryptGateway = new BcryptService();
+    const idGenerator = new V4IdGenerator();
+    const useCase = new CreateUserUseCase(userGateway, encryptGateway, idGenerator);
+
+    const input: CreateUserUCInput = {
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
+    }
+
+    try {
+        const result = await useCase.execute(input);
+        res.status(200).send({
+            message: result.message,
+            userId: result.userId
+        })
+    } catch (e) {
+        console.log(e.message);
+    }
+});
 
 function formatValueAsString(value: number): string {
     return `R$ ${value.toFixed(2)}`
