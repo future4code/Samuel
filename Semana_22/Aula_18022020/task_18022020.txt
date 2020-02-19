@@ -1,0 +1,8 @@
+Exercícios:
+
+1) Um único for a ser percorrido, logo O(n)
+2) Novamente, um único for pra ser percorrido, então O(n)
+3) Como é passado diretamente a posição do elemento na matriz, então O(1)
+4) A função indexOf dentro de um for aumenta a complexidade, então O(n²)
+5) Do mais eficiente para o menos eficente: 3 > 1 = 2 > 4
+
