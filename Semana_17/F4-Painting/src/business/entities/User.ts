@@ -1,8 +1,10 @@
 export class User {
 
     constructor(
+        private id: string,
         private name: string,
-        private email: string
+        private email: string,
+        private password: string
     ){};
 
     public getName(){
@@ -13,4 +15,11 @@ export class User {
         return this.email;
     }
 
+    public getId(){
+        return this.id;
+    }
+
+    public getPassword(){
+        return this.password;
+    }
 }

@@ -7,19 +7,13 @@ export class Order {
     private id?: string;
     private paper: Paper;
     private frame: Frame;
-    private user?: User;
+    private userId: string;
     private date?: string;
 
-    /*
-    //USAR ESSE!
-    const teste = ((moment.now()/1000).toFixed())
-    console.log("nova data:", moment.unix(Number(teste)).format("DD/MM/YYYY - HH:mm:ss"));
-    */
-
-    constructor(paper: Paper, frame: Frame, user?: User, id?: string, date?: string){
+    constructor(paper: Paper, frame: Frame, userId: string, id?: string, date?: string){
         this.paper = paper;
         this.frame = frame;
-        this.user = user;
+        this.userId = userId;
         this.id = id;
         this.date = date;
     }
@@ -40,8 +34,8 @@ export class Order {
         return this.id;
     }
 
-    public getUser(){
-        return this.user;
+    public getUserId(){
+        return this.userId;
     }
 
     public getPaper(){

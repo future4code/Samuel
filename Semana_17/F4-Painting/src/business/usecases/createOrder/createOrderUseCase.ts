@@ -18,13 +18,13 @@ export class CreateOrderUseCase {
         this.idGenerator = idGenerator;
     }
 
-    async execute(input: CreateOrderInput){
+    async execute(input: CreateOrderInput): Promise<CreateOrderOutput>{
 
         const paper = new Paper(input.print.size, input.print.paperType);
         const frame = new Frame(input.frame.type, input.frame.borderSize);
-        const user = new User(input.user.name, input.user.email)
+        
 
-        const order = new Order(paper, frame, user, this.idGenerator.generate());
+        const order = new Order(paper, frame, input.user.userId, this.idGenerator.generate());
 
         await this.orderGateway.saveOrder(order);
 
@@ -32,7 +32,7 @@ export class CreateOrderUseCase {
             printPrice: order.calculatePaperPrice(),
             framePrice: order.calculateFramePrice(),
             totalPrice: order.calculateTotalPrice(),
-            orderId: order.getId()
+            orderId: order.getId() as string
         }
     }
 }
@@ -41,13 +41,19 @@ export interface CreateOrderInput {
     print: {
         size: string,
         paperType: string
-    }
+    };
     frame: {
         type: string,
         borderSize: string
-    }
+    };
     user: {
-        name: string,
-        email: string
-    }    
+        userId: string
+    };
+}
+
+export interface CreateOrderOutput {
+    printPrice: number;
+    framePrice: number;
+    totalPrice: number;
+    orderId: string;
 }
