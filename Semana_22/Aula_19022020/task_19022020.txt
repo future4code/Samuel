@@ -1,0 +1,37 @@
+//Ex 1
+//a)
+const printNumbers = (n: number) => {
+  if (n >= 0) {
+    printNumbers(n - 1);
+    console.log(n);
+  }
+};
+console.log(printNumbers(5));
+
+//b)
+const printNumbersDesc = (n: number) => {
+  if (n >= 0) {
+    console.log(n);
+    printNumbersDesc(n - 1);
+  }
+};
+console.log(printNumbersDesc(5));
+
+//Ex 2
+const sumNumbers = (n: number): number => {
+  if (n > 0) {
+    return (n += sumNumbers(n - 1));
+  }
+  return n;
+};
+console.log("Soma:", sumNumbers(5)); // 0+1+2+3+4+5 = 15
+
+//Ex 3
+const printArray = (arr: number[], i: number = arr.length - 1) => {
+  if (i >= 0) {
+    printArray(arr, i - 1);
+    console.log(`Elemento: ${i}:`, arr[i]);
+  }
+};
+const teste = [10, 20, 30, 40, 50];
+console.log(printArray(teste));
